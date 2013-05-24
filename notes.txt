@@ -1,0 +1,137 @@
+
+ACCOUNT
+---------------------------------------------------------------------------------------------------
+Account Format
+
+Main Segment
+Account
+
+Segment
+Division
+Account
+Segment
+
+Separator
+-
+
+
+Setup
+General Ledger
+Category
+Segment
+Quick Journal
+
+Account Format: Length 9
+segment 1 : 3    (location/dept)
+segment 2 : 4    (account type)
+segment 3 : 2
+
+
+2 Segments
+000
+100 Administration
+200 Accounting
+300 Sales
+400 Service Installation
+500 Consulting Training
+600 Purchasing Receiving
+
+
+1100 - cash
+1200 - receivable
+
+
+Account Setup
+Code
+Description
+Alias
+Category
+
+Posting Type: Balance Sheet, Profit and Loss
+Typical Balance: Debit, Credit
+
+
+Balance Sheet: asset, liability, equity
+Profit and Loss: revenue or expense
+Debit: asset or expense
+Credit: liability, revenue, equity
+
+PostingLevel = Detailed or Summarized
+
+
+Series: Sales, Purchasing, Inventory Control, Payroll, Project
+
+
+000-6600-00
+
+
+Account security will apply to all account fields in the inquiry windows in all
+modules. If you don’t have full access to all accounts, you won’t be able to view
+secured accounts by using an account lookup, by using the browse buttons, by
+entering a secured account number, or by zooming from an account field on another
+window.
+
+
+GL entry
+batchJournal entry
+transaction entry
+quick journal entry
+
+
+User + Company
+
+
+Account
+-------------
+Posting Account
+Unit Account
+Fixed Allocation Account
+Variable Allocation Account
+Retained Earnings Account
+
+Account Balance can be shown as
+Net Change
+Period Balance
+
+
+RECEIVABLES
+---------------------------------------------------------------------------------------------------
+TODO: Tracking Discount?
+Aging
+
+
+
+
+INVOICING
+---------------------------------------------------------------------------------------------------
+Type: Invoice, Return, Packing Slip
+Code: IVC, RTN, SLP
+Posting Account from Item/Customer (Inventory, Receivable)
+
+shortage options: Sell Balance, Override
+TODO: Invoice Item Quantity Distribution:
+
+Commission:
+customer
+invoice
+AppliedTo:sales, total
+salesperson, salesamount, commissionamout
+
+Two types of invoices: with or without PO (someone requested items)
+
+Posting invoice:
+--------------
+credit sales
+debit debtor
+debit expense
+
+
+Choose Item or Customer to use the set of posting accounts as default accounts.
+Many of the posting accounts you assign to customer records in Receivables
+Management and to items in Inventory Control are used to track similar
+revenue or expense accounts. For example, you can assign different posting
+accounts to track Cost of Goods Sold amounts for individual items and for
+customers. Choose the posting accounts assigned to items, or those assigned to
+customers, to be suggested as default entries if the items and customers aren’t
+assigned matching posting accounts
+
