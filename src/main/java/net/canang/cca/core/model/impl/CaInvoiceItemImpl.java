@@ -19,6 +19,7 @@ public class CaInvoiceItemImpl implements CaInvoiceItem {
     private BigDecimal quantity;
     private BigDecimal unitCost;
     private BigDecimal unitPrice;
+    private boolean markdowned;
     private CaInvoice invoice;
     private CaInvoiceItemMarkdownInfo markdownInfo; // NOTE: embedded
 
@@ -68,6 +69,14 @@ public class CaInvoiceItemImpl implements CaInvoiceItem {
 
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public boolean isMarkdowned() {
+        return markdowned;
+    }
+
+    public void setMarkdowned(boolean markdowned) {
+        this.markdowned = markdowned;
     }
 
     public CaInvoiceItemMarkdownInfo getMarkdownInfo() {

@@ -12,9 +12,9 @@ public interface CaJournal extends CaMetaObject, CaPostable, CaAuditable {
 
     String getSourceNo();
 
-    CaCurrency getCurrency();
-
-    void setCurrency(CaCurrency currency);
+//    CaCurrency getCurrency();
+//
+//    void setCurrency(CaCurrency currency);
 
     CaJournalType getJournalType();
 

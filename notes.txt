@@ -135,3 +135,9 @@ customers. Choose the posting accounts assigned to items, or those assigned to
 customers, to be suggested as default entries if the items and customers aren’t
 assigned matching posting accounts
 
+
+CHECKBOOK
+---------------------------------------------------------------------------------------------------
+- multicurrency
+- user access
+- warranty and credit memo does NOT have chequebook tx

@@ -1,5 +1,6 @@
 package net.canang.cca.core.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -7,6 +8,10 @@ import java.util.List;
  * @since 5/24/13
  */
 public interface CaInvoice extends CaDocument{
+
+    BigDecimal getTotalAmount();
+
+    void setTotalAmount(BigDecimal totalAmount);
 
     boolean isSuspended();
 

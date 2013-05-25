@@ -18,7 +18,7 @@ public class CaJournalImpl implements CaJournal {
     private CaPostingStatus postingStatus;
     private CaJournalType journalType;
     private Date postedDate;
-    private CaCurrency currency;
+//    private CaCurrency currency;
     private List<CaPosting> postings;
 
     public Long getId() {
@@ -85,11 +85,11 @@ public class CaJournalImpl implements CaJournal {
         this.postings = postings;
     }
 
-    public CaCurrency getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(CaCurrency currency) {
-        this.currency = currency;
-    }
+//    public CaCurrency getCurrency() {
+//        return currency;
+//    }
+//
+//    public void setCurrency(CaCurrency currency) {
+//        this.currency = currency;
+//    }
 }

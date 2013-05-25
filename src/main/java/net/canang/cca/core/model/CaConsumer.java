@@ -34,10 +34,10 @@ public interface CaConsumer extends CaMetaObject, CaCodeable {
 
     void setAddress(String address);
 
-    CaCheckbook getCheckbook();
+    CaChequebook getChequebook();
 
     CaAccount getCashAccount();
-    CaAccount getAccountReceivableAccount();
+    CaAccount getReceivableAccount();
     CaAccount getSalesAccount();
     CaAccount getInventoryAccount();
 

@@ -1,7 +1,7 @@
 package net.canang.cca.core.model.impl;
 
 import net.canang.cca.core.model.CaAccount;
-import net.canang.cca.core.model.CaCheckbook;
+import net.canang.cca.core.model.CaChequebook;
 import net.canang.cca.core.model.CaConsumer;
 
 /**
@@ -21,9 +21,9 @@ public class CaConsumerImpl implements CaConsumer {
     private String primaryEmail;
     private String secondaryEmail;
     private String address;
-    private CaCheckbook checkbook;
+    private CaChequebook chequebook;
     private CaAccount inventoryAccount;
-    private CaAccount accountReceivableAccount;
+    private CaAccount receivableAccount;
     private CaAccount salesAccount;
     private CaAccount cashAccount;
 
@@ -117,12 +117,12 @@ public class CaConsumerImpl implements CaConsumer {
         this.address = address;
     }
 
-    public CaCheckbook getCheckbook() {
-        return checkbook;
+    public CaChequebook getChequebook() {
+        return chequebook;
     }
 
-    public void setCheckbook(CaCheckbook checkbook) {
-        this.checkbook = checkbook;
+    public void setChequebook(CaChequebook chequebook) {
+        this.chequebook = chequebook;
     }
 
     public CaAccount getInventoryAccount() {
@@ -133,12 +133,12 @@ public class CaConsumerImpl implements CaConsumer {
         this.inventoryAccount = inventoryAccount;
     }
 
-    public CaAccount getAccountReceivableAccount() {
-        return accountReceivableAccount;
+    public CaAccount getReceivableAccount() {
+        return receivableAccount;
     }
 
-    public void setAccountReceivableAccount(CaAccount accountReceivableAccount) {
-        this.accountReceivableAccount = accountReceivableAccount;
+    public void setReceivableAccount(CaAccount receivableAccount) {
+        this.receivableAccount = receivableAccount;
     }
 
     public CaAccount getSalesAccount() {

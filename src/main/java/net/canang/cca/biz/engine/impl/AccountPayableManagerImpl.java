@@ -68,7 +68,6 @@ public class AccountPayableManagerImpl implements AccountPayableManager {
 
         invoiceDao.save(invoice, securityService.getCurrentUser());
         sessionFactory.getCurrentSession().refresh(invoice);
-
         return invoice;
     }
 }
