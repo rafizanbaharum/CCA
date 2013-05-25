@@ -1,8 +1,10 @@
 package net.canang.cca.biz.engine;
 
+import net.canang.cca.core.dao.CaBatchJournalDao;
 import net.canang.cca.core.dao.CaInvoiceDao;
 import net.canang.cca.core.dao.CaJournalDao;
 import net.canang.cca.core.model.*;
+import net.canang.cca.core.model.impl.CaBatchJournalImpl;
 import net.canang.cca.core.model.impl.CaJournalImpl;
 import net.canang.cca.core.model.impl.CaPostingImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class PostingListener implements ApplicationListener<PostingEvent> {
 
     @Autowired
     private CaJournalDao journalDao;
+
+    @Autowired
+    private CaBatchJournalDao batchJournalDao;
 
     @Autowired
     private ReferenceNoService refNoService;
@@ -48,9 +53,12 @@ public class PostingListener implements ApplicationListener<PostingEvent> {
     }
 
     private void serializeToJournal(CaPostable postable) {
+        CaBatchJournalImpl batchJournal = new CaBatchJournalImpl();
+        prepareBatchJournal(batchJournal);
+
         if (postable instanceof CaBatchInvoice) {
-            CaBatchInvoice batch = (CaBatchInvoice) postable;
-            List<CaInvoice> invoices = batch.getInvoices();
+            CaBatchInvoice batchInvoice = (CaBatchInvoice) postable;
+            List<CaInvoice> invoices = batchInvoice.getInvoices();
             for (CaInvoice invoice : invoices) {
                 CaJournalImpl journal = new CaJournalImpl();
                 journal.setReferenceNo(refNoService.generate(invoice.getDocumentType()));
@@ -59,16 +67,24 @@ public class PostingListener implements ApplicationListener<PostingEvent> {
                 journal.setPostingStatus(CaPostingStatus.UNPOSTED);
                 journalDao.save(journal, securityService.getCurrentUser());
 
-                generateDebit(batch, invoice, journal);
-                generateCredit(batch, invoice, journal);
+                generateDebit(batchInvoice, invoice, journal);
+                generateCredit(batchInvoice, invoice, journal);
+
+                batchJournalDao.addJournal(batchJournal,journal,securityService.getCurrentUser());
             }
         }
+    }
+
+    private void prepareBatchJournal(CaBatchJournal batchJournal) {
+        batchJournal.setBatchFrequency(CaBatchFrequency.SINGLE_USE);
+        batchJournal.setBatchStatus(CaBatchStatus.OPENED);
+        batchJournal.setBatchType(CaBatchType.GENERAL_ENTRY);
+        batchJournalDao.save(batchJournal, securityService.getCurrentUser());
     }
 
     private void generateDebit(CaBatchInvoice batch, CaInvoice invoice, CaJournalImpl journal) {
         List<CaInvoiceItem> items = invoice.getItems();
         for (CaInvoiceItem item : items) {
-
             // debit
             CaPosting posting = new CaPostingImpl();
             // TODO: customer or item?
@@ -79,7 +95,6 @@ public class PostingListener implements ApplicationListener<PostingEvent> {
             // posting.setCompany(); // TODO:
             posting.setJournal(journal);
             journalDao.addPosting(journal, posting, securityService.getCurrentUser());
-
         }
     }
 
