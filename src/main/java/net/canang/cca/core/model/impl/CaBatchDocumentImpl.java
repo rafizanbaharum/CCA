@@ -1,9 +1,6 @@
 package net.canang.cca.core.model.impl;
 
-import net.canang.cca.core.model.CaBatchDocument;
-import net.canang.cca.core.model.CaBatchStatus;
-import net.canang.cca.core.model.CaBatchType;
-import net.canang.cca.core.model.CaPostingStatus;
+import net.canang.cca.core.model.*;
 
 import java.util.Date;
 
@@ -19,6 +16,7 @@ public abstract class CaBatchDocumentImpl implements CaBatchDocument {
     private String auditNo;
     private CaBatchStatus batchStatus;
     private CaBatchType batchType;
+    private CaBatchFrequency batchFrequency;
     private CaPostingStatus postingStatus;
     private Date postedDate;
 
@@ -77,6 +75,14 @@ public abstract class CaBatchDocumentImpl implements CaBatchDocument {
 
     public void setBatchStatus(CaBatchStatus batchStatus) {
         this.batchStatus = batchStatus;
+    }
+
+    public CaBatchFrequency getBatchFrequency() {
+        return batchFrequency;
+    }
+
+    public void setBatchFrequency(CaBatchFrequency batchFrequency) {
+        this.batchFrequency = batchFrequency;
     }
 
     public CaBatchType getBatchType() {

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  * @author rafizan.baharum
  * @since 5/24/13
  */
-public class CaMetaInvoiceItemImpl implements CaInvoiceItem {
+public class CaInvoiceItemImpl implements CaInvoiceItem {
 
     private Long id;
     private String description;

@@ -10,10 +10,18 @@ public interface CaFiscal extends CaMetaObject {
 
     Integer getYear();
 
+    void setYear(Integer year);
+
     Date getStartDate();
+
+    void setStartDate(Date startDate);
 
     Date getEndDate();
 
-    CaFiscalStatus getStatus();
+    void setEndDate(Date endDate);
+
+    CaFiscalStatus getFiscalStatus();
+
+    void setFiscalStatus(CaFiscalStatus fiscalStatus);
 
 }
