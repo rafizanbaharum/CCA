@@ -14,8 +14,8 @@ public interface CaPrincipal extends CaMetaObject {
 
     void setPrincipalType(CaPrincipalType principalType);
 
-    boolean isActive();
-
-    void setActive(boolean active);
+//     boolean isActive();
+//
+//    void setActive(boolean active);
 
 }

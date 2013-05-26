@@ -1,7 +1,16 @@
 package net.canang.cca.core.model;
 
 /**
- * Sales, Purchasing, Inventory, Payroll, Project
+ * In GL
+ * All,
+ * Financial
+ * Sales
+ * Purchasing,
+ * Inventory,
+ * Payroll,
+ * Project
+ *
+ *
  * @author rafizan.baharum
  * @since 5/24/13
  */

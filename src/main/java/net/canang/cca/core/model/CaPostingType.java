@@ -6,6 +6,5 @@ package net.canang.cca.core.model;
  */
 public enum CaPostingType {
     BALANCE_SHEET,
-    PROFIT_AND_LOSS,
-    STATEMENT_OF_CHANGE;
+    PROFIT_AND_LOSS;
 }

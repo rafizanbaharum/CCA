@@ -31,6 +31,8 @@ import java.util.List;
  */
 public interface CaAccount extends CaMetaObject, CaCodeable {
 
+    CaAccountType getAccountType();
+
     CaBalanceType getBalanceType();
 
     CaPostingType getPostingType();

@@ -5,4 +5,7 @@ package net.canang.cca.core.model;
  * @since 5/24/13
  */
 public interface CaUser extends CaPrincipal{
+
+    String getUsername();
+
 }

@@ -7,4 +7,5 @@ package net.canang.cca.core.model;
 public enum CaPostingStatus {
     UNPOSTED,
     POSTED
+
 }
