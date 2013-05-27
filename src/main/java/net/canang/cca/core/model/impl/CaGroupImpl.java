@@ -1,6 +1,6 @@
 package net.canang.cca.core.model.impl;
 
-import net.canang.cca.core.model.CaPrincipal;
+import net.canang.cca.core.model.CaGroup;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,5 +11,5 @@ import javax.persistence.Table;
  */
 @Entity(name = "CaGroup")
 @Table(name="CA_GROUP")
-public class CaGroupImpl extends CaPrincipalImpl implements CaPrincipal {
+public class CaGroupImpl extends CaPrincipalImpl implements CaGroup {
 }
