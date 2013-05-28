@@ -2,6 +2,7 @@ package net.canang.cca.core.model.impl;
 
 import net.canang.cca.core.model.*;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -9,16 +10,36 @@ import java.util.List;
  * @author rafizan.baharum
  * @since 5/24/13
  */
+@Entity(name = "CaJournal")
+@Table(name = "CA_JOURNAL")
 public class CaJournalImpl implements CaJournal {
 
+    @Id
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = "SEQ_CA_JOURNAL")
+    @SequenceGenerator(name = "SEQ_CA_JOURNAL", sequenceName = "SEQ_CA_JOURNAL", allocationSize = 1)
     private Long id;
+
+    @Column(name = "REFERENCE_NO")
     private String referenceNo;
+
+    @Column(name = "SOURCE_NO")
     private String sourceNo;
+
+    @Column(name = "AUDIT_NO")
     private String auditNo;
+
+    @Column(name = "POSTING_STATUS")
     private CaPostingStatus postingStatus;
+
+    @Column(name = "JOURNAL_TYPE")
     private CaJournalType journalType;
+
+    @Column(name = "POSTED_DATE")
     private Date postedDate;
 //    private CaCurrency currency;
+
+    @Transient // TODO: for now
     private List<CaPosting> postings;
 
     public Long getId() {

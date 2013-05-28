@@ -40,12 +40,12 @@ public class PostingTest {
         journal.setJournalType(CaJournalType.STANDARD);
 
         CaPosting debit = new CaPostingImpl();
-        debit.setCompany(company);
+        debit.setJournal(journal);
         debit.setAccount(account);
         debit.setAmount(BigDecimal.ZERO);
 
         CaPosting credit = new CaPostingImpl();
-        credit.setCompany(company);
+        credit.setJournal(journal);
         credit.setAccount(account);
         credit.setAmount(BigDecimal.ZERO);
 

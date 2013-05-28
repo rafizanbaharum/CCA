@@ -38,18 +38,19 @@ public class CaConfig {
 
     @Bean
     public PlatformTransactionManager transactionManager() {
-        return new HibernateTransactionManager(sessionFactory());
+        HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager(sessionFactory());
+        return hibernateTransactionManager;
     }
 
     @Bean
     public Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-        properties.put("hibernate.show_sql", "true");
+        properties.put("hibernate.show_sql", "false");
         properties.put("hibernate.hbm2ddl.auto", "validate");
-        properties.put("hibernate.format_sql", "true");
+        properties.put("hibernate.format_sql", "false");
+//        properties.put("hibernate.current_session_context_class", "thread");
 
-//         <!--<prop key="current_session_context_class">thread</prop>-->
 //         <!--<prop key="hibernate.cache.use_second_level_cache">true</prop>-->
 //         <!--<prop key="hibernate.cache.use_query_cache">true</prop>-->
 //         <!--<prop key="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</prop>-->

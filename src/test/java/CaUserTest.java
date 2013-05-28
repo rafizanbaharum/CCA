@@ -14,10 +14,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @since 5/26/13
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CaConfig.class)
-public class UserTest {
+@ContextConfiguration(classes = {CaConfig.class})
+public class CaUserTest {
 
-    private Logger log = LoggerFactory.getLogger(UserTest.class);
+    private Logger log = LoggerFactory.getLogger(CaUserTest.class);
 
     @Autowired
     private CaUserDao userDao;
@@ -27,10 +27,8 @@ public class UserTest {
 
     @Test
     public void retrieveAccount() {
-        log.info("retrieve");
         CaUser user = userDao.findByUsername("admin");
         log.info("user {}", user.getUsername());
-        log.info("done");
     }
 }
 

@@ -15,9 +15,14 @@ import java.math.BigDecimal;
  */
 public interface CaPosting extends CaMetaObject {
 
-    CaCompany getCompany();
+    // TODO:company
+//    CaCompany getCompany();
+//
+//    void setCompany(CaCompany company);
 
-    void setCompany(CaCompany company);
+    String getDescription();
+
+    void setDescription(String description);
 
     CaAccount getAccount();
 

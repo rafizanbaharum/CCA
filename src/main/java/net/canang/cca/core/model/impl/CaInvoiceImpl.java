@@ -2,6 +2,7 @@ package net.canang.cca.core.model.impl;
 
 import net.canang.cca.core.model.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -11,11 +12,20 @@ import java.util.List;
 public class CaInvoiceImpl extends CaDocumentImpl implements CaInvoice {
 
     private boolean suspended;
+    private BigDecimal totalAmount;
     private CaCustomer customer;
     private CaSite site;
 
     private CaBatchInvoice batch;
     private List<CaInvoiceItem> items;
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 
     public boolean isSuspended() {
         return suspended;

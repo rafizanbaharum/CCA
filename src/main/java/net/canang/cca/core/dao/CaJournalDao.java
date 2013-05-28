@@ -3,13 +3,13 @@ package net.canang.cca.core.dao;
 import net.canang.cca.core.model.CaJournal;
 import net.canang.cca.core.model.CaPosting;
 import net.canang.cca.core.model.CaUser;
-import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @author rafizan.baharum
  * @since 5/24/13
  */
-@Component("journalDao")
 public interface CaJournalDao {
 
     CaJournal findById(Long id);
@@ -20,9 +20,13 @@ public interface CaJournalDao {
 
     CaJournal findByAuditNo(String auditNo);
 
+    List<CaJournal> find();
+
     void save(CaJournal journal, CaUser user);
 
-    void addPosting(CaJournal journal, CaPosting posting, CaUser user);
-
     void update(CaJournal journal, CaUser user);
+
+    void remove(CaJournal journal, CaUser user);
+
+    void addPosting(CaJournal journal, CaPosting posting, CaUser user);
 }

@@ -10,7 +10,11 @@ public interface CaJournal extends CaMetaObject, CaPostable, CaAuditable {
 
     String getReferenceNo();
 
+    void setReferenceNo(String referenceNo);
+
     String getSourceNo();
+
+    void setSourceNo(String sourceNo);
 
 //    CaCurrency getCurrency();
 //
