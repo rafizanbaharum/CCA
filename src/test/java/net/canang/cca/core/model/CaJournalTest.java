@@ -1,7 +1,9 @@
+package net.canang.cca.core.model;
+
+import net.canang.cca.CaConfig;
 import net.canang.cca.core.dao.CaAccountDao;
 import net.canang.cca.core.dao.CaJournalDao;
 import net.canang.cca.core.dao.CaUserDao;
-import net.canang.cca.core.model.*;
 import net.canang.cca.core.model.impl.CaJournalImpl;
 import net.canang.cca.core.model.impl.CaPostingImpl;
 import org.hibernate.Session;

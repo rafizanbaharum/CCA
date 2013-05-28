@@ -1,3 +1,5 @@
+package net.canang.cca;
+
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

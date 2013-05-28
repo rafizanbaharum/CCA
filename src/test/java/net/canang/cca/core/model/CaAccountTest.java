@@ -1,5 +1,7 @@
+package net.canang.cca.core.model;
+
+import net.canang.cca.CaConfig;
 import net.canang.cca.core.dao.*;
-import net.canang.cca.core.model.*;
 import net.canang.cca.core.model.impl.CaAccountImpl;
 import org.hibernate.SessionFactory;
 import org.junit.Test;

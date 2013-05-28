@@ -9,6 +9,9 @@ import net.canang.cca.core.model.CaBatchJournal;
 import net.canang.cca.core.model.CaJournal;
 import net.canang.cca.core.model.CaPostable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 import static net.canang.cca.core.model.CaPostingStatus.POSTED;
 
@@ -16,6 +19,7 @@ import static net.canang.cca.core.model.CaPostingStatus.POSTED;
  * @author rafizan.baharum
  * @since 5/24/13
  */
+@Service("ledgerManager")
 public class LedgerManagerImpl implements LedgerManager {
 
     @Autowired
@@ -53,6 +57,7 @@ public class LedgerManagerImpl implements LedgerManager {
         // generate auditNo
         // TODO: atomic
         journal.setPostingStatus(POSTED);
+        journal.setPostedDate(new Date());
         journal.setAuditNo("XXX");
         journalDao.update(journal, securityService.getCurrentUser());
     }

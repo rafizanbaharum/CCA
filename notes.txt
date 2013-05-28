@@ -141,3 +141,8 @@ CHECKBOOK
 - multicurrency
 - user access
 - warranty and credit memo does NOT have chequebook tx
+
+
+select * from CA_POSTING P inner join CA_JOURNAL J on J.ID = P.JOURNAL_ID
+where J.POSTING_STATUS = 1;
+

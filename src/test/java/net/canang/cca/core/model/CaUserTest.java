@@ -1,5 +1,7 @@
+package net.canang.cca.core.model;
+
+import net.canang.cca.CaConfig;
 import net.canang.cca.core.dao.CaUserDao;
-import net.canang.cca.core.model.CaUser;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
