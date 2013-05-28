@@ -4,7 +4,7 @@ package net.canang.cca.core.model;
  * @author rafizan.baharum
  * @since 5/24/13
  */
-public interface CaDocument extends CaAuditable, CaFlowObject, CaPostable{
+public interface CaDocument extends CaAuditable, CaFlowObject, CaPostable {
 
     String getReferenceNo();
 
@@ -15,5 +15,7 @@ public interface CaDocument extends CaAuditable, CaFlowObject, CaPostable{
     void setSourceNo(String sourceNo);
 
     CaDocumentType getDocumentType();
+
+    void setDocumentType(CaDocumentType documentType);
 
 }

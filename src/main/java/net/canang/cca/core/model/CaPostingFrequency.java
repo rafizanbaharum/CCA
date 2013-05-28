@@ -6,8 +6,14 @@ package net.canang.cca.core.model;
  * @author rafizan.baharum
  * @since 5/25/13
  */
-public enum CaBatchFrequency {
+public enum CaPostingFrequency {
 
     SINGLE_USE,
+    WEEKLY,
+    BIWEEKLY,
+    SEMI_MONTHLY,
+    MONTHLY,
+    BIMONTHLY,
+    QUARTERLY,
     RECURRING;
 }

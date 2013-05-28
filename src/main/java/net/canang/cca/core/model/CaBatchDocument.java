@@ -10,9 +10,9 @@ public interface CaBatchDocument extends CaAuditable, CaFlowObject, CaPostable {
 
     void setBatchType(CaBatchType batchType);
 
-    CaBatchFrequency getBatchFrequency();
+    CaPostingFrequency getPostingFrequency();
 
-    void setBatchFrequency(CaBatchFrequency batchFrequency);
+    void setPostingFrequency(CaPostingFrequency postingFrequency);
 
     CaBatchStatus getBatchStatus();
 

@@ -76,7 +76,7 @@ public class PostingListener implements ApplicationListener<PostingEvent> {
     }
 
     private void prepareBatchJournal(CaBatchJournal batchJournal) {
-        batchJournal.setBatchFrequency(CaBatchFrequency.SINGLE_USE);
+        batchJournal.setPostingFrequency(CaPostingFrequency.SINGLE_USE);
         batchJournal.setBatchStatus(CaBatchStatus.OPENED);
         batchJournal.setBatchType(CaBatchType.GENERAL_ENTRY);
         batchJournalDao.save(batchJournal, securityService.getCurrentUser());

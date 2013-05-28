@@ -16,7 +16,7 @@ public abstract class CaBatchDocumentImpl implements CaBatchDocument {
     private String auditNo;
     private CaBatchStatus batchStatus;
     private CaBatchType batchType;
-    private CaBatchFrequency batchFrequency;
+    private CaPostingFrequency postingFrequency;
     private CaPostingStatus postingStatus;
     private Date postedDate;
 
@@ -77,12 +77,12 @@ public abstract class CaBatchDocumentImpl implements CaBatchDocument {
         this.batchStatus = batchStatus;
     }
 
-    public CaBatchFrequency getBatchFrequency() {
-        return batchFrequency;
+    public CaPostingFrequency getPostingFrequency() {
+        return postingFrequency;
     }
 
-    public void setBatchFrequency(CaBatchFrequency batchFrequency) {
-        this.batchFrequency = batchFrequency;
+    public void setPostingFrequency(CaPostingFrequency postingFrequency) {
+        this.postingFrequency = postingFrequency;
     }
 
     public CaBatchType getBatchType() {
