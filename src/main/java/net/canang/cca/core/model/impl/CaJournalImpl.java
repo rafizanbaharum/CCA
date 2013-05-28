@@ -39,6 +39,10 @@ public class CaJournalImpl implements CaJournal {
     private Date postedDate;
 //    private CaCurrency currency;
 
+    @OneToOne(targetEntity = CaDocumentImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "DOCUMENT_ID")
+    private CaDocument document;
+
     @Transient // TODO: for now
     private List<CaPosting> postings;
 
@@ -96,6 +100,14 @@ public class CaJournalImpl implements CaJournal {
 
     public void setPostedDate(Date postedDate) {
         this.postedDate = postedDate;
+    }
+
+    public CaDocument getDocument() {
+        return document;
+    }
+
+    public void setDocument(CaDocument document) {
+        this.document = document;
     }
 
     public List<CaPosting> getPostings() {

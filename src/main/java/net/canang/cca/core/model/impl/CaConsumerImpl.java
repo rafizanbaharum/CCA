@@ -4,27 +4,71 @@ import net.canang.cca.core.model.CaAccount;
 import net.canang.cca.core.model.CaChequebook;
 import net.canang.cca.core.model.CaConsumer;
 
+import javax.persistence.*;
+
 /**
  * @author rafizan.baharum
  * @since 5/24/13
  */
+//@Entity(name = "CaConsumer")
+//@Table(name = "CA_CONSUMER")
+//@Inheritance(strategy = InheritanceType.JOINED)
 public class CaConsumerImpl implements CaConsumer {
 
+    @Id
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = "SEQ_CA_CONSUMER")
+    @SequenceGenerator(name = "SEQ_CA_CONSUMER", sequenceName = "SEQ_CA_CONSUMER", allocationSize = 1)
     private Long id;
+
+    @Column(name = "CODE")
     private String code;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "STATEMENT_NAME")
     private String statementName;
+
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    @Column(name = "ALIAS")
     private String alias;
+
+    @Column(name = "STATEMENT_NAME")
     private String primaryPhone;
+
+    @Column(name = "STATEMENT_NAME")
     private String secondaryPhone;
+
+    @Column(name = "STATEMENT_NAME")
     private String primaryEmail;
+
+    @Column(name = "STATEMENT_NAME")
     private String secondaryEmail;
+
+    @Column(name = "STATEMENT_NAME")
     private String address;
+
+    @ManyToOne(targetEntity = CaChequebookImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "CHEQUEBOOK_ID")
     private CaChequebook chequebook;
+
+    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "INVENTORY_ACCOUNT_ID")
     private CaAccount inventoryAccount;
+
+    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "RECEIVABLE_ACCOUNT_ID")
     private CaAccount receivableAccount;
+
+    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "SALES_ACCOUNT_ID")
     private CaAccount salesAccount;
+
+    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "CASH_ACCOUNT_ID")
     private CaAccount cashAccount;
 
 

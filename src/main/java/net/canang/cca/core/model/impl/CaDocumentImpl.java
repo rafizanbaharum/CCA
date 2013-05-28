@@ -4,20 +4,40 @@ import net.canang.cca.core.model.CaDocument;
 import net.canang.cca.core.model.CaDocumentType;
 import net.canang.cca.core.model.CaPostingStatus;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * @author rafizan.baharum
  * @since 5/24/13
  */
+@Entity(name = "CaDocument")
+@Table(name = "CA_DOCUMENT")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class CaDocumentImpl implements CaDocument {
 
+    @Id
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = "SEQ_CA_DOCUMENT")
+    @SequenceGenerator(name = "SEQ_CA_DOCUMENT", sequenceName = "SEQ_CA_DOCUMENT", allocationSize = 1)
     private Long id;
+
+    @Column(name = "REFERENCE_NO", nullable = false)
     private String referenceNo;
+
+    @Column(name = "SOURCE_NO")
     private String sourceNo;
+
+    @Column(name = "AUDIT_NO")
     private String auditNo;
+
+    @Column(name = "POSTED_DATE")
     private Date postedDate;
+
+    @Column(name = "DOCUMENT_TYPE")
     private CaDocumentType documentType;
+
+    @Column(name = "POSTING_STATUS")
     private CaPostingStatus postingStatus;
 
     public Long getId() {

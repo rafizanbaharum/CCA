@@ -8,9 +8,17 @@ import java.util.List;
  */
 public interface CaPurchaseOrder extends CaDocument {
 
-    CaPurchaseOrderStatus getPurchaseOrderStatus();
+//    CaVendor getVendor();
+//
+//    void setVendor(CaVendor vendor);
+
+    CaPurchaseOrderType getPurchaseOrderType();
+
+    void setPurchaseOrderType(CaPurchaseOrderType purchaseOrderType);
 
     CaWorkflowPriority getWorkflowPriority();
+
+    void setWorkflowPriority(CaWorkflowPriority workflowPriority);
 
     List<CaPurchaseOrderItem> getItems();
 }

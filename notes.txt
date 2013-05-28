@@ -146,3 +146,15 @@ CHECKBOOK
 select * from CA_POSTING P inner join CA_JOURNAL J on J.ID = P.JOURNAL_ID
 where J.POSTING_STATUS = 1;
 
+
+PURCHASE ORDER
+---------------------------------------------------------------------------------------------------
+post to payables
+
+
+Sales Order, where you sell items to a customer. The form is used to ship stock, decreasing inventory,
+and to ultimately invoice the customer and create the liability on the customer.
+
+Purchase Order, where you as a business buy inventory. The form is receive stock, increasing inventory, and,
+if you wish, to process the vendor invoice against and create your own liability to the vendor.
+

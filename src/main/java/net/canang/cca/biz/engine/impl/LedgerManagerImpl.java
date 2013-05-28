@@ -4,10 +4,13 @@ import net.canang.cca.biz.engine.LedgerManager;
 import net.canang.cca.biz.engine.PostingException;
 import net.canang.cca.biz.engine.SecurityService;
 import net.canang.cca.core.dao.CaBatchDao;
+import net.canang.cca.core.dao.CaDocumentDao;
 import net.canang.cca.core.dao.CaJournalDao;
 import net.canang.cca.core.model.CaBatchJournal;
+import net.canang.cca.core.model.CaDocument;
 import net.canang.cca.core.model.CaJournal;
 import net.canang.cca.core.model.CaPostable;
+import org.apache.commons.lang.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +27,9 @@ public class LedgerManagerImpl implements LedgerManager {
 
     @Autowired
     private SecurityService securityService;
+
+    @Autowired
+    private CaDocumentDao documentDao;
 
     @Autowired
     private CaJournalDao journalDao;
@@ -53,13 +59,21 @@ public class LedgerManagerImpl implements LedgerManager {
     }
 
     private void postJournal(CaJournal journal) {
-        // change status to POSTED
-        // generate auditNo
-        // TODO: atomic
-        journal.setPostingStatus(POSTED);
-        journal.setPostedDate(new Date());
-        journal.setAuditNo("XXX");
-        journalDao.update(journal, securityService.getCurrentUser());
+        Validate.notNull(journal,"Journal cannot be null");
+        synchronized (journal) {
+            String auditNo = String.valueOf("AUD" + System.currentTimeMillis()).substring(0, 10);
+            if (null != journal.getDocument()) {
+                journal.setAuditNo(auditNo);
+                journal.setPostingStatus(POSTED);
+                journal.setPostedDate(new Date());
+
+                CaDocument document = journal.getDocument();
+                document.setAuditNo(auditNo);
+
+                documentDao.update(document, securityService.getCurrentUser());
+                journalDao.update(journal, securityService.getCurrentUser());
+            }
+        }
     }
 
     private void postBatch(CaBatchJournal batchJournal) {

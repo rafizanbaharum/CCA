@@ -24,6 +24,10 @@ public interface CaJournal extends CaMetaObject, CaPostable, CaAuditable {
 
     void setJournalType(CaJournalType journalType);
 
+    CaDocument getDocument();
+
+    void setDocument(CaDocument document);
+
     List<CaPosting> getPostings();
 
     void setPostings(List<CaPosting> postings);
