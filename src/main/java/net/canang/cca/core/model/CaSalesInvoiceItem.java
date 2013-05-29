@@ -5,17 +5,17 @@ import java.util.Date;
 
 /**
  * @author rafizan.baharum
- * @since 5/28/13
+ * @since 5/29/13
  */
-public interface CaSalesOrderItem extends CaMetaObject {
+public interface CaSalesInvoiceItem {
 
     BigDecimal getQuantityToBackOrder();
 
     void setQuantityToBackOrder(BigDecimal quantityToBackOrder);
 
-    BigDecimal getQuantityToInvoice();
+    BigDecimal getQuantityBilled();
 
-    void setQuantityToInvoice(BigDecimal quantityToInvoice);
+    void setQuantityBilled(BigDecimal quantityBilled);
 
     BigDecimal getQuantityFulfilled();
 
@@ -33,12 +33,17 @@ public interface CaSalesOrderItem extends CaMetaObject {
 
     void setShippedDate(Date shippedDate);
 
+    CaSalesInvoice getInvoice();
+
+    void setInvoice(CaSalesInvoice invoice);
+
     CaSalesOrder getOrder();
 
-    void setOrder(CaSalesOrder salesOrder);
+    void setOrder(CaSalesOrder order);
 
     // components
     // lots
     // bins
+
 
 }

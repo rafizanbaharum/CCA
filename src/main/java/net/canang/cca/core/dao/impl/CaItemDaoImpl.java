@@ -1,9 +1,10 @@
 package net.canang.cca.core.dao.impl;
 
-import net.canang.cca.core.dao.CaSiteDao;
-import net.canang.cca.core.model.CaSiteCode;
+import net.canang.cca.core.dao.CaItemDao;
+import net.canang.cca.core.model.CaItem;
+import net.canang.cca.core.model.CaItemPrice;
 import net.canang.cca.core.model.CaUser;
-import net.canang.cca.core.model.impl.CaSiteCodeImpl;
+import net.canang.cca.core.model.impl.CaItemImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,46 +20,60 @@ import java.util.List;
  */
 @Repository("itemDao")
 @Transactional
-public class CaItemDaoImpl implements CaSiteDao {
+public class CaItemDaoImpl implements CaItemDao {
 
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public CaSiteCode findById(Long id) {
-        return (CaSiteCode) sessionFactory.getCurrentSession().get(CaSiteCodeImpl.class, id);
+    public CaItem findById(Long id) {
+        return (CaItem) sessionFactory.getCurrentSession().get(CaItemImpl.class, id);
     }
 
     @Override
-    public CaSiteCode findByCode(String code) {
+    public CaItem findByCode(String code) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select u from CaSiteCode u where u.code = :code");
+        Query query = session.createQuery("select u from CaItem u where u.code = :code");
         query.setString("code", code);
-        return (CaSiteCode) query.uniqueResult();
+        return (CaItem) query.uniqueResult();
     }
 
     @Override
-    public List<CaSiteCode> find() {
+    public List<CaItem> find() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select u from CaSiteCode u");
-        return (List<CaSiteCode>) query.list();
+        Query query = session.createQuery("select u from CaItem u");
+        return (List<CaItem>) query.list();
     }
 
     @Override
-    public void save(CaSiteCode item, CaUser creator) {
+    public void save(CaItem item, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
         session.save(item);
     }
 
     @Override
-    public void update(CaSiteCode item, CaUser creator) {
+    public void update(CaItem item, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
         session.update(item);
     }
 
     @Override
-    public void remove(CaSiteCode item, CaUser creator) {
+    public void remove(CaItem item, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(item);
+    }
+
+    @Override
+    public void addPriceLevel(CaItem item, CaItemPrice price, CaUser user) {
+        Session session = sessionFactory.getCurrentSession();
+        price.setItem(item);
+        session.save(price);
+    }
+
+    @Override
+    public void addPriceLevels(CaItem item, List<CaItemPrice> prices, CaUser user) {
+        for (CaItemPrice price : prices) {
+            addPriceLevel(item, price, user);
+        }
     }
 }

@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @author rafizan.baharum
  * @since 5/28/13
  */
-@Entity(name = "CaPurchaseOrder")
+@Entity(name = "CaPurchaseOrderItem")
 @Table(name = "CA_PURCHASE_ORDER_ITEM")
 public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
 

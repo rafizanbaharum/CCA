@@ -1,7 +1,7 @@
 package net.canang.cca.core.model.impl;
 
 import net.canang.cca.core.model.CaItem;
-import net.canang.cca.core.model.CaItemPriceLevel;
+import net.canang.cca.core.model.CaItemPrice;
 import net.canang.cca.core.model.CaUnitCode;
 
 import javax.persistence.*;
@@ -11,14 +11,14 @@ import java.math.BigDecimal;
  * @author rafizan.baharum
  * @since 5/29/13
  */
-@Entity(name = "CaItemPriceLevel")
-@Table(name = "CA_ITEM_PRICE_LEVEL")
-public class CaItemPriceLevelImpl implements CaItemPriceLevel {
+@Entity(name = "CaItemPrice")
+@Table(name = "CA_ITEM_PRICE")
+public class CaItemPriceImpl implements CaItemPrice {
 
     @Id
     @Column(name = "ID", nullable = false)
-    @GeneratedValue(generator = "SEQ_CA_ITEM_PRICE_LEVEL")
-    @SequenceGenerator(name = "SEQ_CA_ITEM_PRICE_LEVEL", sequenceName = "SEQ_CA_ITEM_PRICE_LEVEL", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_CA_ITEM_PRICE")
+    @SequenceGenerator(name = "SEQ_CA_ITEM_PRICE", sequenceName = "SEQ_CA_ITEM_PRICE", allocationSize = 1)
     private Long id;
 
     @Column(name = "PERCENT")

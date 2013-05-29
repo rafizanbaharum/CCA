@@ -1,6 +1,8 @@
 package net.canang.cca.biz.engine;
 
 import net.canang.cca.core.model.CaPostable;
+import net.canang.cca.core.model.CaSalesInvoice;
+import net.canang.cca.core.model.CaSalesOrder;
 
 /**
  * @author rafizan.baharum
@@ -8,7 +10,9 @@ import net.canang.cca.core.model.CaPostable;
  */
 public interface SalesManager {
 
-    public void post(CaPostable postable);
+    CaSalesInvoice applyToSalesInvoice(CaSalesOrder salesOrder);
 
-    public void reverse(CaPostable postable);
+    void post(CaPostable postable);
+
+    void reverse(CaPostable postable);
 }

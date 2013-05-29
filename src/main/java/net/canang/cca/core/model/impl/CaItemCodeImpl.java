@@ -70,20 +70,20 @@ public class CaItemCodeImpl implements CaItemCode {
         this.allowBackOrder = allowBackOrder;
     }
 
-    public CaTaxType getPurchaseTaxType() {
+    public CaTaxType geArTaxType() {
         return purchaseTaxType;
     }
 
-    public void setPurchaseTaxType(CaTaxType purchaseTaxType) {
-        this.purchaseTaxType = purchaseTaxType;
+    public void setArTaxType(CaTaxType artTaxType) {
+        this.purchaseTaxType = artTaxType;
     }
 
-    public CaTaxType getSalesTaxType() {
+    public CaTaxType getApTaxType() {
         return salesTaxType;
     }
 
-    public void setSalesTaxType(CaTaxType salesTaxType) {
-        this.salesTaxType = salesTaxType;
+    public void setApTaxType(CaTaxType apTaxType) {
+        this.salesTaxType = apTaxType;
     }
 
     public CaUnitCode getUnitCode() {

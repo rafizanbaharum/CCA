@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * @author rafizan.baharum
  * @since 5/25/13
  */
-public interface CaItemPriceLevel extends CaMetaObject {
+public interface CaItemPrice extends CaMetaObject {
 
     CaItem getItem();
 

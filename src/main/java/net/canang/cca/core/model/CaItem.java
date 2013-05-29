@@ -4,10 +4,11 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
+ * NOTE: price level one currency only
+ *
  * @author rafizan.baharum
  * @since 5/25/13
  */
-// TODO: change to inventory
 public interface CaItem extends CaMetaObject, CaCodeable {
 
     String getShortDescription();
@@ -30,13 +31,17 @@ public interface CaItem extends CaMetaObject, CaCodeable {
 
     void setPriceMethod(CaItemPriceMethod priceMethod);
 
-    CaItemPriceLevel getDefaultPriceLevel();
+    CaItemPrice getDefaultPrice();
 
-    void setDefaultPriceLevel(CaItemPriceLevel priceLevel);
+    void setDefaultPrice(CaItemPrice price);
 
-    List<CaItemPriceLevel> getPriceLevels();
+    CaAccount getUnitAccount();
 
-    void setPriceLevels(List<CaItemPriceLevel> priceLevels);
+    void setUnitAccount(CaAccount account);
+
+    List<CaItemPrice> getPrices();
+
+    void setPrices(List<CaItemPrice> prices);
 
     // transient?
     BigDecimal getQuantityOnHand();

@@ -25,6 +25,10 @@ public class ReferenceNoServiceImpl implements ReferenceNoService {
             case PURCHASE_ORDER:
                 generated = "XXX";
                 break;
+            case SALES_INVOICE:
+                break;
+            case PURCHASE_INVOICE:
+                break;
         }
         return generated;
     }

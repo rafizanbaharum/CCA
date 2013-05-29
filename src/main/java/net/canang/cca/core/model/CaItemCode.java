@@ -1,23 +1,23 @@
 package net.canang.cca.core.model;
 
 /**
+ * Dynamics Term: Item Class
  * @author rafizan.baharum
  * @since 5/24/13
  */
-// TODO: change to inventory code
 public interface CaItemCode extends CaMetaObject, CaCodeable {
 
     boolean isAllowBackOrder();
 
     void setAllowBackOrder(boolean allowBackOrder);
 
-    CaTaxType getPurchaseTaxType();
+    CaTaxType geArTaxType();
 
-    void setPurchaseTaxType(CaTaxType purchaseTaxType);
+    void setArTaxType(CaTaxType artTaxType);
 
-    CaTaxType getSalesTaxType();
+    CaTaxType getApTaxType();
 
-    void setSalesTaxType(CaTaxType salesTaxType);
+    void setApTaxType(CaTaxType apTaxType);
 
     CaUnitCode getUnitCode();
 

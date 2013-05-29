@@ -1,6 +1,7 @@
 package net.canang.cca.core.dao;
 
 import net.canang.cca.core.model.CaItem;
+import net.canang.cca.core.model.CaItemPrice;
 import net.canang.cca.core.model.CaUser;
 
 import java.util.List;
@@ -22,4 +23,9 @@ public interface CaItemDao {
     void update(CaItem site, CaUser user);
 
     void remove(CaItem site, CaUser user);
+
+    void addPriceLevel(CaItem item, CaItemPrice price, CaUser user);
+
+    void addPriceLevels(CaItem item, List<CaItemPrice> prices, CaUser user);
+
 }

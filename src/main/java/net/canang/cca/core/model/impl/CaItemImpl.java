@@ -44,24 +44,29 @@ public class CaItemImpl implements CaItem {
     @Column(name = "AR_TAX_TYPE")
     private CaTaxType arTaxType;
 
-    @Column(name = "AP_TAX_TYPE")
+    @Column(name = "STANDARD_COST")
     private BigDecimal standardCost;
 
-    @Column(name = "AP_TAX_TYPE")
+    @Column(name = "CURRENT_COST")
     private BigDecimal currentCost;
 
     @Column(name = "PRICE_METHOD")
     private CaItemPriceMethod priceMethod;
 
+    @ManyToOne(targetEntity = CaItemPriceImpl.class, fetch = FetchType.LAZY)
     @Column(name = "DEFAULT_PRICE_LEVEL")
-    private CaItemPriceLevel defaultPriceLevel;
+    private CaItemPrice defaultPrice;
 
     @ManyToOne(targetEntity = CaUnitCodeImpl.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "UNIT_CODE_ID")
     private CaUnitCode unitCode;
 
-    @OneToMany(targetEntity = CaItemPriceLevelImpl.class, mappedBy = "item", fetch = FetchType.LAZY)
-    private List<CaItemPriceLevel> priceLevels;
+    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "UNIT_ACCOUNT_ID")
+    private CaAccount unitAccount;
+
+    @OneToMany(targetEntity = CaItemPriceImpl.class, mappedBy = "item", fetch = FetchType.LAZY)
+    private List<CaItemPrice> prices;
 
     @Transient
     private BigDecimal quantityAvailable;
@@ -173,20 +178,28 @@ public class CaItemImpl implements CaItem {
         this.priceMethod = priceMethod;
     }
 
-    public CaItemPriceLevel getDefaultPriceLevel() {
-        return defaultPriceLevel;
+    public CaItemPrice getDefaultPrice() {
+        return defaultPrice;
     }
 
-    public void setDefaultPriceLevel(CaItemPriceLevel defaultPriceLevel) {
-        this.defaultPriceLevel = defaultPriceLevel;
+    public void setDefaultPrice(CaItemPrice defaultPrice) {
+        this.defaultPrice = defaultPrice;
     }
 
-    public List<CaItemPriceLevel> getPriceLevels() {
-        return priceLevels;
+    public CaAccount getUnitAccount() {
+        return unitAccount;
     }
 
-    public void setPriceLevels(List<CaItemPriceLevel> priceLevels) {
-        this.priceLevels = priceLevels;
+    public void setUnitAccount(CaAccount unitAccount) {
+        this.unitAccount = unitAccount;
+    }
+
+    public List<CaItemPrice> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<CaItemPrice> prices) {
+        this.prices = prices;
     }
 
     public BigDecimal getQuantityAvailable() {
