@@ -67,7 +67,7 @@ public class CaPurchaseOrderTest {
         CaAccount account1 = accountDao.findByCode("000-1110-00");
         CaAccount account2 = accountDao.findByCode("000-1190-00");
         CaVendor vendor = vendorDao.findByCode("000-1190-00");
-        CaSite site = siteDao.findByCode("000-1190-00");
+        CaSiteCode siteCode = siteDao.findByCode("000-1190-00");
         CaUnitCode unitCode = unitCodeDao.findByCode("000-1190-00");
         CaItem item = itemDao.findByCode("000-1190-00");
 
@@ -87,7 +87,7 @@ public class CaPurchaseOrderTest {
         CaPurchaseOrderItem orderItem1 = new CaPurchaseOrderItemImpl();
         orderItem1.setDescription("item 1");
         orderItem1.setItem(item);
-        orderItem1.setSite(site);
+        orderItem1.setSiteCode(siteCode);
         orderItem1.setUnitCode(unitCode);
         orderItem1.setUnitCost(BigDecimal.valueOf(0.01));
         orderItem1.setExtendedCost(BigDecimal.valueOf(0.01));
@@ -97,7 +97,7 @@ public class CaPurchaseOrderTest {
         CaPurchaseOrderItem orderItem2 = new CaPurchaseOrderItemImpl();
         orderItem2.setDescription("item 2");
         orderItem2.setItem(item);
-        orderItem2.setSite(site);
+        orderItem2.setSiteCode(siteCode);
         orderItem2.setUnitCode(unitCode);
         orderItem2.setUnitCost(BigDecimal.valueOf(0.01));
         orderItem2.setExtendedCost(BigDecimal.valueOf(0.01));

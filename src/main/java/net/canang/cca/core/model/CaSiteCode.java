@@ -4,12 +4,16 @@ package net.canang.cca.core.model;
  * @author rafizan.baharum
  * @since 5/24/13
  */
-public interface CaSite extends CaMetaObject, CaCodeable{
+public interface CaSiteCode extends CaMetaObject, CaCodeable{
 
 
-    String getPhone();
+    String getPhone1();
 
-    void setPhone(String phone);
+    void setPhone1(String phone);
+
+    String getPhone2();
+
+    void setPhone2(String phone);
 
     String getFax();
 
@@ -22,6 +26,10 @@ public interface CaSite extends CaMetaObject, CaCodeable{
     String getAddress2();
 
     void setAddress2(String address);
+
+    String getAddress3();
+
+    void setAddress3(String address);
 
     String getCity();
 

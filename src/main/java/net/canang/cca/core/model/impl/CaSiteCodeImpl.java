@@ -1,6 +1,6 @@
 package net.canang.cca.core.model.impl;
 
-import net.canang.cca.core.model.CaSite;
+import net.canang.cca.core.model.CaSiteCode;
 
 import javax.persistence.*;
 
@@ -8,14 +8,14 @@ import javax.persistence.*;
  * @author rafizan.baharum
  * @since 5/25/13
  */
-@Entity(name = "CaSite")
-@Table(name = "CA_SITE")
-public class CaSiteImpl implements CaSite {
+@Entity(name = "CaSiteCode")
+@Table(name = "CA_SITE_CODE")
+public class CaSiteCodeImpl implements CaSiteCode {
 
     @Id
     @Column(name = "ID", nullable = false)
-    @GeneratedValue(generator = "SEQ_CA_SITE")
-    @SequenceGenerator(name = "SEQ_CA_SITE", sequenceName = "SEQ_CA_SITE", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_CA_SITE_CODE")
+    @SequenceGenerator(name = "SEQ_CA_SITE_CODE", sequenceName = "SEQ_CA_SITE_CODE", allocationSize = 1)
     private Long id;
 
     @Column(name = "CODE")
@@ -29,12 +29,14 @@ public class CaSiteImpl implements CaSite {
 
     private String address1;
     private String address2;
-    private String phone;
-    private String fax;
+    private String address3;
     private String city;
     private String state;
     private String zipcode;
     private String country;
+    private String phone1;
+    private String phone2;
+    private String fax;
 
 
     public Long getId() {
@@ -85,12 +87,28 @@ public class CaSiteImpl implements CaSite {
         this.address2 = address2;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getAddress3() {
+        return address3;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
+
+    public String getPhone1() {
+        return phone1;
+    }
+
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
     }
 
     public String getFax() {

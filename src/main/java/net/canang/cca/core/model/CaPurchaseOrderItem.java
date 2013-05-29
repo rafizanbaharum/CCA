@@ -16,9 +16,9 @@ public interface CaPurchaseOrderItem {
 
     void setItem(CaItem item);
 
-    CaSite getSite();
+    CaSiteCode getSiteCode();
 
-    void setSite(CaSite site);
+    void setSiteCode(CaSiteCode siteCode);
 
     CaUnitCode getUnitCode();
 

@@ -1,6 +1,6 @@
 package net.canang.cca.core.dao;
 
-import net.canang.cca.core.model.CaSite;
+import net.canang.cca.core.model.CaSiteCode;
 import net.canang.cca.core.model.CaUser;
 
 import java.util.List;
@@ -11,15 +11,15 @@ import java.util.List;
  */
 public interface CaSiteDao {
 
-    CaSite findById(Long id);
+    CaSiteCode findById(Long id);
 
-    CaSite findByCode(String code);
+    CaSiteCode findByCode(String code);
 
-    List<CaSite> find();
+    List<CaSiteCode> find();
 
-    void save(CaSite site, CaUser user);
+    void save(CaSiteCode siteCode, CaUser user);
 
-    void update(CaSite site, CaUser user);
+    void update(CaSiteCode siteCode, CaUser user);
 
-    void remove(CaSite site, CaUser user);
+    void remove(CaSiteCode siteCode, CaUser user);
 }

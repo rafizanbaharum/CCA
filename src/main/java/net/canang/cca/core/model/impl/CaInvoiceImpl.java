@@ -14,7 +14,7 @@ public class CaInvoiceImpl extends CaDocumentImpl implements CaInvoice {
     private boolean suspended;
     private BigDecimal totalAmount;
     private CaCustomer customer;
-    private CaSite site;
+    private CaSiteCode siteCode;
 
     private CaBatchInvoice batch;
     private List<CaInvoiceItem> items;
@@ -43,12 +43,12 @@ public class CaInvoiceImpl extends CaDocumentImpl implements CaInvoice {
         this.customer = customer;
     }
 
-    public CaSite getSite() {
-        return site;
+    public CaSiteCode getSiteCode() {
+        return siteCode;
     }
 
-    public void setSite(CaSite site) {
-        this.site = site;
+    public void setSiteCode(CaSiteCode siteCode) {
+        this.siteCode = siteCode;
     }
 
     public CaBatchInvoice getBatch() {

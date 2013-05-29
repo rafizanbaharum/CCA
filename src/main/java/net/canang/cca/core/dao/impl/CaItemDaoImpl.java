@@ -1,9 +1,9 @@
 package net.canang.cca.core.dao.impl;
 
 import net.canang.cca.core.dao.CaSiteDao;
-import net.canang.cca.core.model.CaSite;
+import net.canang.cca.core.model.CaSiteCode;
 import net.canang.cca.core.model.CaUser;
-import net.canang.cca.core.model.impl.CaSiteImpl;
+import net.canang.cca.core.model.impl.CaSiteCodeImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,39 +25,39 @@ public class CaItemDaoImpl implements CaSiteDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public CaSite findById(Long id) {
-        return (CaSite) sessionFactory.getCurrentSession().get(CaSiteImpl.class, id);
+    public CaSiteCode findById(Long id) {
+        return (CaSiteCode) sessionFactory.getCurrentSession().get(CaSiteCodeImpl.class, id);
     }
 
     @Override
-    public CaSite findByCode(String code) {
+    public CaSiteCode findByCode(String code) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select u from CaSite u where u.code = :code");
+        Query query = session.createQuery("select u from CaSiteCode u where u.code = :code");
         query.setString("code", code);
-        return (CaSite) query.uniqueResult();
+        return (CaSiteCode) query.uniqueResult();
     }
 
     @Override
-    public List<CaSite> find() {
+    public List<CaSiteCode> find() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select u from CaSite u");
-        return (List<CaSite>) query.list();
+        Query query = session.createQuery("select u from CaSiteCode u");
+        return (List<CaSiteCode>) query.list();
     }
 
     @Override
-    public void save(CaSite item, CaUser creator) {
+    public void save(CaSiteCode item, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
         session.save(item);
     }
 
     @Override
-    public void update(CaSite item, CaUser creator) {
+    public void update(CaSiteCode item, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
         session.update(item);
     }
 
     @Override
-    public void remove(CaSite item, CaUser creator) {
+    public void remove(CaSiteCode item, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(item);
     }

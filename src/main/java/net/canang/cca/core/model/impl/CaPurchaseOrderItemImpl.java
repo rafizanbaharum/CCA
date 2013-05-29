@@ -41,7 +41,7 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
     private CaItem item;
 
     @JoinColumn(name = "SITE_ID")
-    private CaSite site;
+    private CaSiteCode siteCode;
 
     @JoinColumn(name = "ORDER_ID")
     private CaPurchaseOrder order;
@@ -70,12 +70,12 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
         this.item = item;
     }
 
-    public CaSite getSite() {
-        return site;
+    public CaSiteCode getSiteCode() {
+        return siteCode;
     }
 
-    public void setSite(CaSite site) {
-        this.site = site;
+    public void setSiteCode(CaSiteCode siteCode) {
+        this.siteCode = siteCode;
     }
 
     public CaUnitCode getUnitCode() {

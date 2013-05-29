@@ -21,9 +21,9 @@ public interface CaInvoice extends CaDocument{
 
     void setCustomer(CaCustomer customer);
 
-    CaSite getSite();
+    CaSiteCode getSiteCode();
 
-    void setSite(CaSite site);
+    void setSiteCode(CaSiteCode siteCode);
 
     CaBatchInvoice getBatch();
 
