@@ -46,16 +46,16 @@ public class CaAccountTest {
     public void createAccount() {
         CaUser user = userDao.findByUsername("admin");
         CaProjectCode projectCode = projectCodeDao.findByCode("00");
-        CaLocationCode locationCode = locationCodeDao.findByCode("000");
+        CaDepartmentCode departmentCode = locationCodeDao.findByCode("000");
         List<CaAccountCode> accountCodes = accountCodeDao.find();
         for (CaAccountCode accountCode : accountCodes) {
             CaAccountImpl account = new CaAccountImpl();
-            account.setLocationCode(locationCode);
+            account.setDepartmentCode(departmentCode);
             account.setAccountCode(accountCode);
             account.setProjectCode(projectCode);
-            account.setCode(locationCode.getCode() + "-" + accountCode.getCode() + "-" + projectCode.getCode());
-            account.setDescription(accountCode.getDescription() + "-" + locationCode.getDescription());
-            account.setAlias(locationCode.getCode() + "-" + accountCode.getCode() + "-" + projectCode.getCode());
+            account.setCode(departmentCode.getCode() + "-" + accountCode.getCode() + "-" + projectCode.getCode());
+            account.setDescription(accountCode.getDescription() + "-" + departmentCode.getDescription());
+            account.setAlias(departmentCode.getCode() + "-" + accountCode.getCode() + "-" + projectCode.getCode());
             account.setPostingType(CaPostingType.BALANCE_SHEET);
             account.setBalanceType(CaBalanceType.CREDIT);
             account.setAccountType(CaAccountType.POSTING_ACCOUNT);

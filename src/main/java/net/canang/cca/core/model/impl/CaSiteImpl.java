@@ -2,16 +2,31 @@ package net.canang.cca.core.model.impl;
 
 import net.canang.cca.core.model.CaSite;
 
+import javax.persistence.*;
+
 /**
  * @author rafizan.baharum
  * @since 5/25/13
  */
+@Entity(name = "CaSite")
+@Table(name = "CA_SITE")
 public class CaSiteImpl implements CaSite {
 
+    @Id
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = "SEQ_CA_SITE")
+    @SequenceGenerator(name = "SEQ_CA_SITE", sequenceName = "SEQ_CA_SITE", allocationSize = 1)
     private Long id;
+
+    @Column(name = "CODE")
     private String code;
+
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    @Column(name = "ALIAS")
     private String alias;
+
     private String address1;
     private String address2;
     private String phone;

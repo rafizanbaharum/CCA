@@ -1,8 +1,7 @@
 package net.canang.cca.core.dao.impl;
 
 import net.canang.cca.core.dao.CaPurchaseOrderDao;
-import net.canang.cca.core.model.CaPurchaseOrder;
-import net.canang.cca.core.model.CaUser;
+import net.canang.cca.core.model.*;
 import net.canang.cca.core.model.impl.CaPurchaseOrderImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -80,7 +79,13 @@ public class CaPurchaseOrderDaoImpl implements CaPurchaseOrderDao {
     public void remove(CaPurchaseOrder purchaseOrder, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(purchaseOrder);
+    }
 
+    @Override
+    public void addItem(CaPurchaseOrder purchaseOrder, CaPurchaseOrderItem orderItem, CaUser user) {
+        Session session = sessionFactory.getCurrentSession();
+        orderItem.setOrder(purchaseOrder);
+        session.save(purchaseOrder);
     }
 }
 

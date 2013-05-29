@@ -1,6 +1,7 @@
 package net.canang.cca.core.dao;
 
 import net.canang.cca.core.model.CaPurchaseOrder;
+import net.canang.cca.core.model.CaPurchaseOrderItem;
 import net.canang.cca.core.model.CaUser;
 
 import java.util.List;
@@ -26,4 +27,6 @@ public interface CaPurchaseOrderDao {
     void update(CaPurchaseOrder order, CaUser user);
 
     void remove(CaPurchaseOrder order, CaUser user);
+
+    void addItem(CaPurchaseOrder purchaseOrder, CaPurchaseOrderItem orderItem, CaUser user);
 }

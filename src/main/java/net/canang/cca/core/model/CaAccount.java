@@ -37,7 +37,7 @@ public interface CaAccount extends CaMetaObject, CaCodeable {
 
     CaPostingType getPostingType();
 
-    CaLocationCode getLocationCode();
+    CaDepartmentCode getDepartmentCode();
 
     CaAccountCode getAccountCode();
 

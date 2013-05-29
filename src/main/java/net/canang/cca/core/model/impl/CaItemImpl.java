@@ -2,6 +2,7 @@ package net.canang.cca.core.model.impl;
 
 import net.canang.cca.core.model.*;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -9,29 +10,63 @@ import java.util.List;
  * @author rafizan.baharum
  * @since 5/25/13
  */
+@Entity(name = "CaItem")
+@Table(name = "CA_ITEM")
 public class CaItemImpl implements CaItem {
 
+    @Id
+    @Column(name = "ID", nullable = false)
+    @GeneratedValue(generator = "SEQ_CA_ITEM")
+    @SequenceGenerator(name = "SEQ_CA_ITEM", sequenceName = "SEQ_CA_ITEM", allocationSize = 1)
     private Long id;
+
+    @Column(name = "CODE")
     private String code;
+
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    @Column(name = "SHORT_DESCRIPTION")
     private String shortDescription;
+
+    @Column(name = "GENERIC_DESCRIPTION")
     private String genericDescription;
+
+    @Column(name = "ALIAS")
     private String alias;
 
+    @Column(name = "ALLOW_BACK_ORDER")
     private boolean allowBackOrder;
-    private CaTaxType purchaseTaxType;
-    private CaTaxType salesTaxType;
-    private CaUnitCode unitCode;
 
+    @Column(name = "AP_TAX_TYPE")
+    private CaTaxType apTaxType;
+
+    @Column(name = "AR_TAX_TYPE")
+    private CaTaxType arTaxType;
+
+    @Column(name = "AP_TAX_TYPE")
     private BigDecimal standardCost;
+
+    @Column(name = "AP_TAX_TYPE")
     private BigDecimal currentCost;
 
+    @Column(name = "PRICE_METHOD")
     private CaItemPriceMethod priceMethod;
+
+    @Column(name = "DEFAULT_PRICE_LEVEL")
     private CaItemPriceLevel defaultPriceLevel;
+
+    @ManyToOne(targetEntity = CaUnitCodeImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "UNIT_CODE_ID")
+    private CaUnitCode unitCode;
+
+    @OneToMany(targetEntity = CaItemPriceLevelImpl.class, mappedBy = "item", fetch = FetchType.LAZY)
     private List<CaItemPriceLevel> priceLevels;
 
-
+    @Transient
     private BigDecimal quantityAvailable;
+
+    @Transient
     private BigDecimal quantityOnHand;
 
     public Long getId() {
@@ -90,20 +125,20 @@ public class CaItemImpl implements CaItem {
         this.allowBackOrder = allowBackOrder;
     }
 
-    public CaTaxType getPurchaseTaxType() {
-        return purchaseTaxType;
+    public CaTaxType getApTaxType() {
+        return apTaxType;
     }
 
-    public void setPurchaseTaxType(CaTaxType purchaseTaxType) {
-        this.purchaseTaxType = purchaseTaxType;
+    public void setApTaxType(CaTaxType apTaxType) {
+        this.apTaxType = apTaxType;
     }
 
-    public CaTaxType getSalesTaxType() {
-        return salesTaxType;
+    public CaTaxType getArTaxType() {
+        return arTaxType;
     }
 
-    public void setSalesTaxType(CaTaxType salesTaxType) {
-        this.salesTaxType = salesTaxType;
+    public void setArTaxType(CaTaxType arTaxType) {
+        this.arTaxType = arTaxType;
     }
 
     public CaUnitCode getUnitCode() {

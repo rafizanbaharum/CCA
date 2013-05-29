@@ -1,6 +1,6 @@
 package net.canang.cca.core.dao;
 
-import net.canang.cca.core.model.CaLocationCode;
+import net.canang.cca.core.model.CaDepartmentCode;
 import net.canang.cca.core.model.CaUser;
 
 import java.util.List;
@@ -11,15 +11,15 @@ import java.util.List;
  */
 public interface CaLocationCodeDao {
 
-    CaLocationCode findById(Long id);
+    CaDepartmentCode findById(Long id);
 
-    CaLocationCode findByCode(String code);
+    CaDepartmentCode findByCode(String code);
 
-    List<CaLocationCode> find();
+    List<CaDepartmentCode> find();
 
-    void save(CaLocationCode accountCode, CaUser user);
+    void save(CaDepartmentCode accountCode, CaUser user);
 
-    void update(CaLocationCode accountCode, CaUser user);
+    void update(CaDepartmentCode accountCode, CaUser user);
 
-    void remove(CaLocationCode accountCode, CaUser user);
+    void remove(CaDepartmentCode accountCode, CaUser user);
 }

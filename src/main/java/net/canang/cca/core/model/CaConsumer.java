@@ -10,37 +10,31 @@ public interface CaConsumer extends CaMetaObject, CaCodeable {
 
     void setName(String name);
 
-    String getStatementName();
+    String getEmail1();
 
-    void setStatementName(String statementName);
+    void setEmail2(String primaryEmail);
 
-    String getPrimaryPhone();
+    String getAddress1();
 
-    void setPrimaryPhone(String primaryPhone);
+    void setAddress1(String address);
 
-    String getSecondaryPhone();
+    String getAddress2();
 
-    void setSecondaryPhone(String secondaryPhone);
+    void setAddress2(String address);
 
-    String getPrimaryEmail();
+    String getAddress3();
 
-    void setPrimaryEmail(String primaryEmail);
+    void setAddress3(String address);
 
-    String getSecondaryEmail();
-
-    void setSecondaryEmail(String secondaryEmail);
-
-    String getAddress();
-
-    void setAddress(String address);
+    CaConsumerType getConsumerType();
 
     CaChequebook getChequebook();
 
     CaAccount getCashAccount();
+
     CaAccount getReceivableAccount();
+
     CaAccount getSalesAccount();
+
     CaAccount getInventoryAccount();
-
-
-
 }

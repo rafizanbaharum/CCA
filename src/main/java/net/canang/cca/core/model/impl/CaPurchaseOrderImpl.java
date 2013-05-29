@@ -11,7 +11,6 @@ import java.util.List;
  */
 @Entity(name = "CaPurchaseOrder")
 @Table(name = "CA_PURCHASE_ORDER")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class CaPurchaseOrderImpl extends CaDocumentImpl implements CaPurchaseOrder {
 
     @Column(name = "PURCHASE_ORDER_TYPE")
@@ -20,21 +19,13 @@ public class CaPurchaseOrderImpl extends CaDocumentImpl implements CaPurchaseOrd
     @Column(name = "WORKFLOW_PRIORITY")
     private CaWorkflowPriority workflowPriority;
 
-//    @OneToOne(targetEntity = CaVendorImpl.class, fetch = FetchType.LAZY)
-//    @Column(name = "VENDOR_ID")
-//    private CaVendor vendor;
+    @OneToOne(targetEntity = CaVendorImpl.class, fetch = FetchType.LAZY)
+    @Column(name = "VENDOR_ID")
+    private CaVendor vendor;
 
-    @Transient // TODO: for now
+    @OneToMany(targetEntity = CaPurchaseOrderItemImpl.class, mappedBy = "invoice", fetch = FetchType.LAZY)
     private List<CaPurchaseOrderItem> items;
 
-//    public CaVendor getVendor() {
-//        return vendor;
-//    }
-//
-//    public void setVendor(CaVendor vendor) {
-//        this.vendor = vendor;
-//    }
-//
     public CaPurchaseOrderType getPurchaseOrderType() {
         return purchaseOrderType;
     }
@@ -50,6 +41,15 @@ public class CaPurchaseOrderImpl extends CaDocumentImpl implements CaPurchaseOrd
     public void setWorkflowPriority(CaWorkflowPriority workflowPriority) {
         this.workflowPriority = workflowPriority;
     }
+
+    public CaVendor getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(CaVendor vendor) {
+        this.vendor = vendor;
+    }
+
 
     public List<CaPurchaseOrderItem> getItems() {
         return items;

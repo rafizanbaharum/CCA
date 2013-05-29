@@ -1,21 +1,21 @@
 package net.canang.cca.core.model.impl;
 
-import net.canang.cca.core.model.CaLocationCode;
+import net.canang.cca.core.model.CaUnitCode;
 
 import javax.persistence.*;
 
 /**
  * @author rafizan.baharum
- * @since 5/25/13
+ * @since 5/29/13
  */
-@Entity(name = "CaLocationCode")
-@Table(name="CA_LOCATION_CODE")
-public class CaLocationCodeImpl implements CaLocationCode {
+@Entity(name = "CaUnitCode")
+@Table(name = "CA_UNIT_CODE")
+public class CaUnitCodeImpl implements CaUnitCode {
 
     @Id
     @Column(name = "ID", nullable = false)
-    @GeneratedValue(generator = "SEQ_CA_LOCATION_CODE")
-    @SequenceGenerator(name = "SEQ_CA_LOCATION_CODE", sequenceName = "SEQ_CA_LOCATION_CODE", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_CA_UNIT_CODE")
+    @SequenceGenerator(name = "SEQ_CA_UNIT_CODE", sequenceName = "SEQ_CA_UNIT_CODE", allocationSize = 1)
     private Long id;
 
     @Column(name = "CODE")

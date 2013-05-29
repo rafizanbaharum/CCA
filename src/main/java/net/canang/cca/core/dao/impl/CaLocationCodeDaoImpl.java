@@ -1,9 +1,9 @@
 package net.canang.cca.core.dao.impl;
 
 import net.canang.cca.core.dao.CaLocationCodeDao;
-import net.canang.cca.core.model.CaLocationCode;
+import net.canang.cca.core.model.CaDepartmentCode;
 import net.canang.cca.core.model.CaUser;
-import net.canang.cca.core.model.impl.CaLocationCodeImpl;
+import net.canang.cca.core.model.impl.CaDepartmentCodeImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,40 +25,40 @@ public class CaLocationCodeDaoImpl implements CaLocationCodeDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public CaLocationCode findById(Long id) {
-        return (CaLocationCode) sessionFactory.getCurrentSession().get(CaLocationCodeImpl.class, id);
+    public CaDepartmentCode findById(Long id) {
+        return (CaDepartmentCode) sessionFactory.getCurrentSession().get(CaDepartmentCodeImpl.class, id);
     }
 
     @Override
-    public CaLocationCode findByCode(String code) {
+    public CaDepartmentCode findByCode(String code) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select u from CaLocationCode u where u.code = :code");
+        Query query = session.createQuery("select u from CaDepartmentCode u where u.code = :code");
         query.setString("code", code);
-        return (CaLocationCode) query.uniqueResult();
+        return (CaDepartmentCode) query.uniqueResult();
     }
 
     @Override
-    public List<CaLocationCode> find() {
+    public List<CaDepartmentCode> find() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("select u from CaLocationCode u");
-        return (List<CaLocationCode>) query.list();
+        Query query = session.createQuery("select u from CaDepartmentCode u");
+        return (List<CaDepartmentCode>) query.list();
     }
 
     @Override
-    public void save(CaLocationCode locationCode, CaUser creator) {
+    public void save(CaDepartmentCode departmentCode, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(locationCode);
+        session.save(departmentCode);
     }
 
     @Override
-    public void update(CaLocationCode locationCode, CaUser creator) {
+    public void update(CaDepartmentCode departmentCode, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
-        session.update(locationCode);
+        session.update(departmentCode);
     }
 
     @Override
-    public void remove(CaLocationCode locationCode, CaUser creator) {
+    public void remove(CaDepartmentCode departmentCode, CaUser creator) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete(locationCode);
+        session.delete(departmentCode);
     }
 }

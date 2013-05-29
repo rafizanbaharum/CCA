@@ -37,9 +37,9 @@ public class CaAccountImpl implements CaAccount {
     @Column(name = "ACCOUNT_TYPE")
     private CaAccountType accountType;
 
-    @ManyToOne(targetEntity = CaLocationCodeImpl.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = CaDepartmentCodeImpl.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "LOCATION_CODE_ID")
-    private CaLocationCode locationCode;
+    private CaDepartmentCode departmentCode;
 
     @ManyToOne(targetEntity = CaAccountCodeImpl.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "ACCOUNT_CODE_ID")
@@ -111,12 +111,12 @@ public class CaAccountImpl implements CaAccount {
         this.accountType = accountType;
     }
 
-    public CaLocationCode getLocationCode() {
-        return locationCode;
+    public CaDepartmentCode getDepartmentCode() {
+        return departmentCode;
     }
 
-    public void setLocationCode(CaLocationCode locationCode) {
-        this.locationCode = locationCode;
+    public void setDepartmentCode(CaDepartmentCode departmentCode) {
+        this.departmentCode = departmentCode;
     }
 
     public CaAccountCode getAccountCode() {

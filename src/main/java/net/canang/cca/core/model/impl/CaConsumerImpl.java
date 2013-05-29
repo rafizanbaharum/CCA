@@ -3,6 +3,7 @@ package net.canang.cca.core.model.impl;
 import net.canang.cca.core.model.CaAccount;
 import net.canang.cca.core.model.CaChequebook;
 import net.canang.cca.core.model.CaConsumer;
+import net.canang.cca.core.model.CaConsumerType;
 
 import javax.persistence.*;
 
@@ -10,9 +11,9 @@ import javax.persistence.*;
  * @author rafizan.baharum
  * @since 5/24/13
  */
-//@Entity(name = "CaConsumer")
-//@Table(name = "CA_CONSUMER")
-//@Inheritance(strategy = InheritanceType.JOINED)
+@Entity(name = "CaConsumer")
+@Table(name = "CA_CONSUMER")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class CaConsumerImpl implements CaConsumer {
 
     @Id
@@ -27,48 +28,54 @@ public class CaConsumerImpl implements CaConsumer {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "STATEMENT_NAME")
-    private String statementName;
-
     @Column(name = "DESCRIPTION")
     private String description;
 
     @Column(name = "ALIAS")
     private String alias;
 
-    @Column(name = "STATEMENT_NAME")
-    private String primaryPhone;
+    @Column(name = "PHONE1")
+    private String phone1;
 
-    @Column(name = "STATEMENT_NAME")
-    private String secondaryPhone;
+    @Column(name = "PHONE2")
+    private String phone2;
 
-    @Column(name = "STATEMENT_NAME")
-    private String primaryEmail;
+    @Column(name = "EMAIL1")
+    private String email1;
 
-    @Column(name = "STATEMENT_NAME")
-    private String secondaryEmail;
+    @Column(name = "EMAIL2")
+    private String email2;
 
-    @Column(name = "STATEMENT_NAME")
-    private String address;
+    @Column(name = "ADDRESS1")
+    private String address1;
 
-    @ManyToOne(targetEntity = CaChequebookImpl.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "CHEQUEBOOK_ID")
+    @Column(name = "ADDRESS2")
+    private String address2;
+
+    @Column(name = "ADDRESS3")
+    private String address3;
+
+    @Column(name = "CONSUMER_TYPE")
+    private CaConsumerType consumerType;
+
+//    @ManyToOne(targetEntity = CaChequebookImpl.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "CHEQUEBOOK_ID")
     private CaChequebook chequebook;
 
-    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "INVENTORY_ACCOUNT_ID")
+//    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "INVENTORY_ACCOUNT_ID")
     private CaAccount inventoryAccount;
 
-    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "RECEIVABLE_ACCOUNT_ID")
+//    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "RECEIVABLE_ACCOUNT_ID")
     private CaAccount receivableAccount;
 
-    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "SALES_ACCOUNT_ID")
+//    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "SALES_ACCOUNT_ID")
     private CaAccount salesAccount;
 
-    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "CASH_ACCOUNT_ID")
+//    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "CASH_ACCOUNT_ID")
     private CaAccount cashAccount;
 
 
@@ -113,52 +120,68 @@ public class CaConsumerImpl implements CaConsumer {
         this.name = name;
     }
 
-    public String getStatementName() {
-        return statementName;
+    public String getPhone1() {
+        return phone1;
     }
 
-    public void setStatementName(String statementName) {
-        this.statementName = statementName;
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
     }
 
-    public String getPrimaryPhone() {
-        return primaryPhone;
+    public String getPhone2() {
+        return phone2;
     }
 
-    public void setPrimaryPhone(String primaryPhone) {
-        this.primaryPhone = primaryPhone;
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
     }
 
-    public String getSecondaryPhone() {
-        return secondaryPhone;
+    public String getEmail1() {
+        return email1;
     }
 
-    public void setSecondaryPhone(String secondaryPhone) {
-        this.secondaryPhone = secondaryPhone;
+    public void setEmail1(String email1) {
+        this.email1 = email1;
     }
 
-    public String getPrimaryEmail() {
-        return primaryEmail;
+    public String getEmail2() {
+        return email2;
     }
 
-    public void setPrimaryEmail(String primaryEmail) {
-        this.primaryEmail = primaryEmail;
+    public void setEmail2(String email2) {
+        this.email2 = email2;
     }
 
-    public String getSecondaryEmail() {
-        return secondaryEmail;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setSecondaryEmail(String secondaryEmail) {
-        this.secondaryEmail = secondaryEmail;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress2() {
+        return address2;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getAddress3() {
+        return address3;
+    }
+
+    public void setAddress3(String address3) {
+        this.address3 = address3;
+    }
+
+    public CaConsumerType getConsumerType() {
+        return consumerType;
+    }
+
+    public void setConsumerType(CaConsumerType consumerType) {
+        this.consumerType = consumerType;
     }
 
     public CaChequebook getChequebook() {
