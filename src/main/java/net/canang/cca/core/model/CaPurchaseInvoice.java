@@ -6,11 +6,11 @@ import java.util.List;
  * @author rafizan.baharum
  * @since 5/25/13
  */
-public interface CaPurchaseOrder extends CaDocument {
+public interface CaPurchaseInvoice extends CaDocument {
 
-    CaPurchaseOrderType getOrderType();
+    CaPurchaseInvoiceType getInvoiceType();
 
-    void setOrderType(CaPurchaseOrderType orderType);
+    void setInvoiceType(CaPurchaseInvoiceType invoiceType);
 
     CaWorkflowPriority getWorkflowPriority();
 
@@ -20,7 +20,7 @@ public interface CaPurchaseOrder extends CaDocument {
 
     void setVendor(CaVendor vendor);
 
-    List<CaPurchaseOrderItem> getItems();
+    List<CaPurchaseInvoiceItem> getItems();
 
-    void setItems(List<CaPurchaseOrderItem> items);
+    void setItems(List<CaPurchaseInvoiceItem> items);
 }

@@ -74,7 +74,7 @@ public class CaPurchaseOrderTest {
         CaPurchaseOrder purchaseOrder = new CaPurchaseOrderImpl();
         purchaseOrder.setReferenceNo("JRL" + String.valueOf(System.currentTimeMillis()).substring(0, 10));
         purchaseOrder.setPostingStatus(CaPostingStatus.UNPOSTED);
-        purchaseOrder.setPurchaseOrderType(CaPurchaseOrderType.STANDARD);
+        purchaseOrder.setOrderType(CaPurchaseOrderType.STANDARD);
         purchaseOrder.setWorkflowPriority(CaWorkflowPriority.LOW);
         purchaseOrder.setPostedDate(new Date());
         purchaseOrder.setVendor(vendor);

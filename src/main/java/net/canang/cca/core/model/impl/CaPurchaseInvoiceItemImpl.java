@@ -9,18 +9,15 @@ import java.math.BigDecimal;
  * @author rafizan.baharum
  * @since 5/28/13
  */
-@Entity(name = "CaPurchaseOrder")
-@Table(name = "CA_PURCHASE_ORDER_ITEM")
-public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
+@Entity(name = "CaPurchaseInvoice")
+@Table(name = "CA_PURCHASE_INVOICE_ITEM")
+public class CaPurchaseInvoiceItemImpl implements CaPurchaseInvoiceItem {
 
     @Id
     @Column(name = "ID", nullable = false)
-    @GeneratedValue(generator = "SEQ_CA_PURCHASE_ORDER_ITEM")
-    @SequenceGenerator(name = "SEQ_CA_PURCHASE_ORDER_ITEM", sequenceName = "SEQ_CA_PURCHASE_ORDER_ITEM", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_CA_PURCHASE_INVOICE_ITEM")
+    @SequenceGenerator(name = "SEQ_CA_PURCHASE_INVOICE_ITEM", sequenceName = "SEQ_CA_PURCHASE_INVOICE_ITEM", allocationSize = 1)
     private Long id;
-
-    @Column(name = "DESCRIPTION")
-    private String description;
 
     @Column(name = "UNIT_COST")
     private BigDecimal unitCost;
@@ -31,8 +28,8 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
     @Column(name = "QUANTITY_ORDERED")
     private BigDecimal quantityOrdered;
 
-    @Column(name = "QUANTITY_CANCELLED")
-    private BigDecimal quantityCancelled;
+    @Column(name = "QUANTITY_SHIPPED")
+    private BigDecimal quantityShipped;
 
     @ManyToOne(targetEntity = CaUnitCodeImpl.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "UNIT_CODE_ID")
@@ -47,6 +44,10 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
     private CaSiteCode siteCode;
 
     @ManyToOne(targetEntity = CaPurchaseInvoiceImpl.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "INVOICE_ID")
+    private CaPurchaseInvoice invoice;
+
+    @ManyToOne(targetEntity = CaPurchaseOrderImpl.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID")
     private CaPurchaseOrder order;
 
@@ -56,14 +57,6 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public CaItem getItem() {
@@ -114,12 +107,12 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
         this.quantityOrdered = quantityOrdered;
     }
 
-    public BigDecimal getQuantityCancelled() {
-        return quantityCancelled;
+    public BigDecimal getQuantityShipped() {
+        return quantityShipped;
     }
 
-    public void setQuantityCancelled(BigDecimal quantityCancelled) {
-        this.quantityCancelled = quantityCancelled;
+    public void setQuantityShipped(BigDecimal quantityShipped) {
+        this.quantityShipped = quantityShipped;
     }
 
     public CaPurchaseOrder getOrder() {
@@ -128,5 +121,13 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
 
     public void setOrder(CaPurchaseOrder order) {
         this.order = order;
+    }
+
+    public CaPurchaseInvoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(CaPurchaseInvoice invoice) {
+        this.invoice = invoice;
     }
 }

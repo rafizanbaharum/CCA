@@ -7,6 +7,7 @@ import java.util.List;
  * @author rafizan.baharum
  * @since 5/25/13
  */
+// TODO: change to inventory
 public interface CaItem extends CaMetaObject, CaCodeable {
 
     String getShortDescription();

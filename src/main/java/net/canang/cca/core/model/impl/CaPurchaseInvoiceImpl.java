@@ -9,12 +9,12 @@ import java.util.List;
  * @author rafizan.baharum
  * @since 5/28/13
  */
-@Entity(name = "CaPurchaseOrder")
-@Table(name = "CA_PURCHASE_ORDER")
-public class CaPurchaseOrderImpl extends CaDocumentImpl implements CaPurchaseOrder {
+@Entity(name = "CaPurchaseInvoice")
+@Table(name = "CA_PURCHASE_INVOICE")
+public class CaPurchaseInvoiceImpl extends CaDocumentImpl implements CaPurchaseInvoice {
 
-    @Column(name = "ORDER_TYPE")
-    private CaPurchaseOrderType orderType;
+    @Column(name = "INVOICE_TYPE")
+    private CaPurchaseInvoiceType invoiceType;
 
     @Column(name = "WORKFLOW_PRIORITY")
     private CaWorkflowPriority workflowPriority;
@@ -23,15 +23,15 @@ public class CaPurchaseOrderImpl extends CaDocumentImpl implements CaPurchaseOrd
     @Column(name = "VENDOR_ID")
     private CaVendor vendor;
 
-    @OneToMany(targetEntity = CaPurchaseOrderItemImpl.class, mappedBy = "invoice", fetch = FetchType.LAZY)
-    private List<CaPurchaseOrderItem> items;
+    @OneToMany(targetEntity = CaPurchaseInvoiceItemImpl.class, mappedBy = "invoice", fetch = FetchType.LAZY)
+    private List<CaPurchaseInvoiceItem> items;
 
-    public CaPurchaseOrderType getOrderType() {
-        return orderType;
+    public CaPurchaseInvoiceType getInvoiceType() {
+        return invoiceType;
     }
 
-    public void setOrderType(CaPurchaseOrderType orderType) {
-        this.orderType = orderType;
+    public void setInvoiceType(CaPurchaseInvoiceType invoiceType) {
+        this.invoiceType = invoiceType;
     }
 
     public CaWorkflowPriority getWorkflowPriority() {
@@ -51,11 +51,11 @@ public class CaPurchaseOrderImpl extends CaDocumentImpl implements CaPurchaseOrd
     }
 
 
-    public List<CaPurchaseOrderItem> getItems() {
+    public List<CaPurchaseInvoiceItem> getItems() {
         return items;
     }
 
-    public void setItems(List<CaPurchaseOrderItem> items) {
+    public void setItems(List<CaPurchaseInvoiceItem> items) {
         this.items = items;
     }
 }
