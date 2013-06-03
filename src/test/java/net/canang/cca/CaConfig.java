@@ -4,6 +4,7 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -21,7 +22,7 @@ import java.util.Properties;
  * @since 5/26/13
  */
 @Configuration
-//@ComponentScan({"net.canang.cca.core", "net.canang.cca.biz"})
+@ComponentScan({"net.canang.cca.core", "net.canang.cca.biz"})
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement
 public class CaConfig {
@@ -79,8 +80,8 @@ public class CaConfig {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUsername("cca");
         dataSource.setPassword("abc123");
-        dataSource.setUrl("db.url");
-        dataSource.setDriverClassName("jdbc:oracle:thin:@localhost:1521/ORCL");
+        dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:ORCL");
+        dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
         dataSource.setInitialSize(10);
         dataSource.setMaxActive(5);
         dataSource.setMaxWait(5000);

@@ -38,7 +38,7 @@ public class CaAccountImpl implements CaAccount {
     private CaAccountType accountType;
 
     @ManyToOne(targetEntity = CaDepartmentCodeImpl.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "LOCATION_CODE_ID")
+    @JoinColumn(name = "DEPARTMENT_CODE_ID")
     private CaDepartmentCode departmentCode;
 
     @ManyToOne(targetEntity = CaAccountCodeImpl.class, fetch = FetchType.LAZY)

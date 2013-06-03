@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 3 segments
  * Location = Site/Dept
- * Account =
+ * AccountEntryPoint =
  * XX      =
  * <p/>
  * 000 NONE
@@ -17,7 +17,7 @@ import java.util.List;
  * 600 PURCHASING RECEIVING
  * <p/>
  *
- * Account can only be closed if
+ * AccountEntryPoint can only be closed if
  * - No balance
  * - No activity for an open period
  * - No account history amounts

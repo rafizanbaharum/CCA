@@ -8,14 +8,14 @@ import javax.persistence.*;
  * @author rafizan.baharum
  * @since 5/25/13
  */
-@Entity(name = "CaLocationCode")
-@Table(name="CA_LOCATION_CODE")
+@Entity(name = "CaDepartmentCode")
+@Table(name="CA_DEPARTMENT_CODE")
 public class CaDepartmentCodeImpl implements CaDepartmentCode {
 
     @Id
     @Column(name = "ID", nullable = false)
-    @GeneratedValue(generator = "SEQ_CA_LOCATION_CODE")
-    @SequenceGenerator(name = "SEQ_CA_LOCATION_CODE", sequenceName = "SEQ_CA_LOCATION_CODE", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_CA_DEPARTMENT_CODE")
+    @SequenceGenerator(name = "SEQ_CA_DEPARTMENT_CODE", sequenceName = "SEQ_CA_DEPARTMENT_CODE", allocationSize = 1)
     private Long id;
 
     @Column(name = "CODE")

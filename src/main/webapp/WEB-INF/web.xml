@@ -11,8 +11,8 @@
         <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
     </context-param>
     <context-param>
-       <param-name>contextConfigLocation</param-name>
-       <param-value>net.canang.cca.CaConfig</param-value>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>net.canang.cca.CaConfig</param-value>
     </context-param>
 
     <filter>
@@ -33,6 +33,19 @@
         <filter-name>hibernateFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+
+    <servlet>
+        <servlet-name>AccountService</servlet-name>
+        <servlet-class>net.canang.cca.web.server.AccountServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AccountService</servlet-name>
+        <url-pattern>cca/AccountService</url-pattern>
+    </servlet-mapping>
+
+
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
