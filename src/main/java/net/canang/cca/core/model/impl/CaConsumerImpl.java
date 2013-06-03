@@ -60,23 +60,23 @@ public class CaConsumerImpl implements CaConsumer {
 
 //    @ManyToOne(targetEntity = CaChequebookImpl.class, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "CHEQUEBOOK_ID")
-    private CaChequebook chequebook;
+//    private CaChequebook chequebook;
 
 //    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "INVENTORY_ACCOUNT_ID")
-    private CaAccount inventoryAccount;
+//    private CaAccount inventoryAccount;
 
 //    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "RECEIVABLE_ACCOUNT_ID")
-    private CaAccount receivableAccount;
+//    private CaAccount receivableAccount;
 
 //    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "SALES_ACCOUNT_ID")
-    private CaAccount salesAccount;
+//    private CaAccount salesAccount;
 
 //    @ManyToOne(targetEntity = CaAccountImpl.class, fetch = FetchType.LAZY)
 //    @JoinColumn(name = "CASH_ACCOUNT_ID")
-    private CaAccount cashAccount;
+//    private CaAccount cashAccount;
 
 
     public Long getId() {
@@ -184,43 +184,43 @@ public class CaConsumerImpl implements CaConsumer {
         this.consumerType = consumerType;
     }
 
-    public CaChequebook getChequebook() {
-        return chequebook;
-    }
-
-    public void setChequebook(CaChequebook chequebook) {
-        this.chequebook = chequebook;
-    }
-
-    public CaAccount getInventoryAccount() {
-        return inventoryAccount;
-    }
-
-    public void setInventoryAccount(CaAccount inventoryAccount) {
-        this.inventoryAccount = inventoryAccount;
-    }
-
-    public CaAccount getReceivableAccount() {
-        return receivableAccount;
-    }
-
-    public void setReceivableAccount(CaAccount receivableAccount) {
-        this.receivableAccount = receivableAccount;
-    }
-
-    public CaAccount getSalesAccount() {
-        return salesAccount;
-    }
-
-    public void setSalesAccount(CaAccount salesAccount) {
-        this.salesAccount = salesAccount;
-    }
-
-    public CaAccount getCashAccount() {
-        return cashAccount;
-    }
-
-    public void setCashAccount(CaAccount cashAccount) {
-        this.cashAccount = cashAccount;
-    }
+//    public CaChequebook getChequebook() {
+//        return chequebook;
+//    }
+//
+//    public void setChequebook(CaChequebook chequebook) {
+//        this.chequebook = chequebook;
+//    }
+//
+//    public CaAccount getInventoryAccount() {
+//        return inventoryAccount;
+//    }
+//
+//    public void setInventoryAccount(CaAccount inventoryAccount) {
+//        this.inventoryAccount = inventoryAccount;
+//    }
+//
+//    public CaAccount getReceivableAccount() {
+//        return receivableAccount;
+//    }
+//
+//    public void setReceivableAccount(CaAccount receivableAccount) {
+//        this.receivableAccount = receivableAccount;
+//    }
+//
+//    public CaAccount getSalesAccount() {
+//        return salesAccount;
+//    }
+//
+//    public void setSalesAccount(CaAccount salesAccount) {
+//        this.salesAccount = salesAccount;
+//    }
+//
+//    public CaAccount getCashAccount() {
+//        return cashAccount;
+//    }
+//
+//    public void setCashAccount(CaAccount cashAccount) {
+//        this.cashAccount = cashAccount;
+//    }
 }

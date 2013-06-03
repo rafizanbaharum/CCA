@@ -20,7 +20,7 @@ public class CaPurchaseInvoiceImpl extends CaDocumentImpl implements CaPurchaseI
     private CaWorkflowPriority workflowPriority;
 
     @OneToOne(targetEntity = CaVendorImpl.class, fetch = FetchType.LAZY)
-    @Column(name = "VENDOR_ID")
+    @JoinColumn(name = "VENDOR_ID")
     private CaVendor vendor;
 
     @OneToMany(targetEntity = CaPurchaseInvoiceItemImpl.class, mappedBy = "invoice", fetch = FetchType.LAZY)

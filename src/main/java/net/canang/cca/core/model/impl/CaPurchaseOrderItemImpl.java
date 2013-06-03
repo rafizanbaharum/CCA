@@ -46,7 +46,7 @@ public class CaPurchaseOrderItemImpl implements CaPurchaseOrderItem {
     @JoinColumn(name = "SITE_CODE_ID")
     private CaSiteCode siteCode;
 
-    @ManyToOne(targetEntity = CaPurchaseInvoiceImpl.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = CaPurchaseOrderImpl.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID")
     private CaPurchaseOrder order;
 

@@ -20,10 +20,10 @@ public class CaPurchaseOrderImpl extends CaDocumentImpl implements CaPurchaseOrd
     private CaWorkflowPriority workflowPriority;
 
     @OneToOne(targetEntity = CaVendorImpl.class, fetch = FetchType.LAZY)
-    @Column(name = "VENDOR_ID")
+    @JoinColumn(name = "VENDOR_ID")
     private CaVendor vendor;
 
-    @OneToMany(targetEntity = CaPurchaseOrderItemImpl.class, mappedBy = "invoice", fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = CaPurchaseOrderItemImpl.class, mappedBy = "order", fetch = FetchType.LAZY)
     private List<CaPurchaseOrderItem> items;
 
     public CaPurchaseOrderType getOrderType() {

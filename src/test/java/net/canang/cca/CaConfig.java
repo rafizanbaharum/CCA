@@ -4,7 +4,6 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -22,7 +21,7 @@ import java.util.Properties;
  * @since 5/26/13
  */
 @Configuration
-@ComponentScan({"net.canang.cca.core", "net.canang.cca.biz"})
+//@ComponentScan({"net.canang.cca.core", "net.canang.cca.biz"})
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement
 public class CaConfig {
@@ -33,7 +32,7 @@ public class CaConfig {
     @Bean
     public SessionFactory sessionFactory() {
         return new LocalSessionFactoryBuilder(dataSource())
-                .scanPackages("net.canang.cca.core")
+                .scanPackages("net.canang.cca.core.model")
                 .addProperties(hibernateProperties())
                 .buildSessionFactory();
     }
@@ -51,6 +50,8 @@ public class CaConfig {
         properties.put("hibernate.show_sql", "false");
         properties.put("hibernate.hbm2ddl.auto", "validate");
         properties.put("hibernate.format_sql", "false");
+        properties.put("javax.persistence.validation.mode", "none");
+
 //        properties.put("hibernate.current_session_context_class", "thread");
 
 //         <!--<prop key="hibernate.cache.use_second_level_cache">true</prop>-->
@@ -76,10 +77,10 @@ public class CaConfig {
     @Bean
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUsername(environment.getProperty("db.user"));
-        dataSource.setPassword(environment.getProperty("db.password"));
-        dataSource.setUrl(environment.getProperty("db.url"));
-        dataSource.setDriverClassName(environment.getProperty("db.driver"));
+        dataSource.setUsername("cca");
+        dataSource.setPassword("abc123");
+        dataSource.setUrl("db.url");
+        dataSource.setDriverClassName("jdbc:oracle:thin:@localhost:1521/ORCL");
         dataSource.setInitialSize(10);
         dataSource.setMaxActive(5);
         dataSource.setMaxWait(5000);

@@ -54,7 +54,7 @@ public class CaItemImpl implements CaItem {
     private CaItemPriceMethod priceMethod;
 
     @ManyToOne(targetEntity = CaItemPriceImpl.class, fetch = FetchType.LAZY)
-    @Column(name = "DEFAULT_PRICE_LEVEL")
+    @JoinColumn(name = "DEFAULT_PRICE_LEVEL")
     private CaItemPrice defaultPrice;
 
     @ManyToOne(targetEntity = CaUnitCodeImpl.class, fetch = FetchType.LAZY)

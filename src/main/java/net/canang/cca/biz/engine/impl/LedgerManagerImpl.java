@@ -11,7 +11,6 @@ import net.canang.cca.core.model.CaDocument;
 import net.canang.cca.core.model.CaJournal;
 import net.canang.cca.core.model.CaPostable;
 import org.apache.commons.lang.Validate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -25,16 +24,16 @@ import static net.canang.cca.core.model.CaPostingStatus.POSTED;
 @Service("ledgerManager")
 public class LedgerManagerImpl implements LedgerManager {
 
-    @Autowired
+//    @Autowired
     private SecurityService securityService;
 
-    @Autowired
+//    @Autowired
     private CaDocumentDao documentDao;
 
-    @Autowired
+//    @Autowired
     private CaJournalDao journalDao;
 
-    @Autowired
+//    @Autowired
     private CaBatchDao batchDao;
 
     @Override

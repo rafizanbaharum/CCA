@@ -90,7 +90,7 @@ public class PostingListener implements ApplicationListener<PostingEvent> {
             // TODO: customer or item?
             // customer.getSalesAccount()
             // item.getAccount();
-            posting.setAccount(invoice.getCustomer().getSalesAccount());
+//            posting.setAccount(invoice.getCustomer().getSalesAccount()); // todo:
             posting.setAmount(item.getMarkdownInfo().getExtendedPrice());
             // posting.setCompany(); // TODO:
             posting.setJournal(journal);

@@ -34,7 +34,7 @@ public class CaItemPriceImpl implements CaItemPrice {
     private BigDecimal endQuantity;
 
     @ManyToOne(targetEntity = CaItemImpl.class, fetch = FetchType.LAZY)
-    @Column(name = "ITEM_ID")
+    @JoinColumn(name = "ITEM_ID")
     private CaItem item;
 
     @ManyToOne(targetEntity = CaUnitCodeImpl.class, fetch = FetchType.LAZY)

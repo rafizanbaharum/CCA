@@ -28,13 +28,13 @@ public interface CaConsumer extends CaMetaObject, CaCodeable {
 
     CaConsumerType getConsumerType();
 
-    CaChequebook getChequebook();
-
-    CaAccount getCashAccount();
-
-    CaAccount getReceivableAccount();
-
-    CaAccount getSalesAccount();
-
-    CaAccount getInventoryAccount();
+//    CaChequebook getChequebook();
+//
+//    CaAccount getCashAccount();
+//
+//    CaAccount getReceivableAccount();
+//
+//    CaAccount getSalesAccount();
+//
+//    CaAccount getInventoryAccount();
 }

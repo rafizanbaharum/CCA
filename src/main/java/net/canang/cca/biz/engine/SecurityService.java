@@ -2,7 +2,6 @@ package net.canang.cca.biz.engine;
 
 import net.canang.cca.core.dao.CaUserDao;
 import net.canang.cca.core.model.CaUser;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component("securityService")
 public class SecurityService {
 
-    @Autowired
+//    @Autowired
     private CaUserDao userDao;
 
     public CaUser getCurrentUser() {

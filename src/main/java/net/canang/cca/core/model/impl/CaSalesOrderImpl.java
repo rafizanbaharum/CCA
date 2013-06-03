@@ -30,7 +30,7 @@ public class CaSalesOrderImpl extends CaDocumentImpl implements CaSalesOrder {
     private CaWorkflowPriority workflowPriority;
 
     @OneToOne(targetEntity = CaCustomerImpl.class, fetch = FetchType.LAZY)
-    @Column(name = "CUSTOMER_ID")
+    @JoinColumn(name = "CUSTOMER_ID")
     private CaCustomer customer;
 
     @OneToMany(targetEntity = CaSalesOrderItemImpl.class, mappedBy = "order", fetch = FetchType.LAZY)

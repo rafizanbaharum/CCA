@@ -30,7 +30,7 @@ public class CaSalesInvoiceImpl extends CaDocumentImpl implements CaSalesInvoice
     private CaWorkflowPriority workflowPriority;
 
     @OneToOne(targetEntity = CaCustomerImpl.class, fetch = FetchType.LAZY)
-    @Column(name = "CUSTOMER_ID")
+    @JoinColumn(name = "CUSTOMER_ID")
     private CaCustomer customer;
 
     @OneToMany(targetEntity = CaSalesInvoiceItemImpl.class, mappedBy = "invoice", fetch = FetchType.LAZY)

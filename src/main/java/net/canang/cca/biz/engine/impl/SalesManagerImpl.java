@@ -9,7 +9,6 @@ import net.canang.cca.core.model.*;
 import net.canang.cca.core.model.impl.CaSalesInvoiceImpl;
 import net.canang.cca.core.model.impl.CaSalesInvoiceItemImpl;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -23,19 +22,19 @@ import java.util.List;
 @Component("salesManager")
 public class SalesManagerImpl implements SalesManager {
 
-    @Autowired
+//    @Autowired
     private SessionFactory sessionFactory;
 
-    @Autowired
+//    @Autowired
     private SecurityService securityService;
 
-    @Autowired
+//    @Autowired
     private ReferenceNoService referenceNoService;
 
-    @Autowired
+//    @Autowired
     private CaSalesOrderDao salesOrderDao;
 
-    @Autowired
+//    @Autowired
     private CaSalesInvoiceDao salesInvoiceDao;
 
     @Override
