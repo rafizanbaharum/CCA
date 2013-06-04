@@ -65,7 +65,6 @@
                     <form:FieldLabel text="Updated">
                         <form:widget>
                             <form:DateField ui:field="lastTrans" name="date"/>
-                            <form:ComboBox ui:field="accountCombo" name="account"/>
                         </form:widget>
                     </form:FieldLabel>
                 </container:child>

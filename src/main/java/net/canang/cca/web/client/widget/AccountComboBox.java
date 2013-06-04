@@ -1,5 +1,6 @@
 package net.canang.cca.web.client.widget;
 
+import com.google.inject.Inject;
 import com.sencha.gxt.cell.core.client.form.ComboBoxCell;
 import com.sencha.gxt.data.shared.ListStore;
 import com.sencha.gxt.data.shared.loader.*;
@@ -15,7 +16,10 @@ import net.canang.cca.web.client.loader.AccountRpcProxy;
  */
 public class AccountComboBox extends ComboBox<AccountModel> {
 
-    public AccountComboBox(AccountServiceAsync service) {
+    @Inject
+    private AccountServiceAsync service;
+
+    public AccountComboBox() {
         super(new AccountComboBoxCell(new ListStore<AccountModel>(new AccountModel.MyKeyProvider()), new AccountModel.MyLabelProvider()));
         setForceSelection(true);
         setMinChars(3);

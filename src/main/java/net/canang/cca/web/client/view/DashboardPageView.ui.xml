@@ -1,0 +1,29 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:c="urn:import:com.sencha.gxt.widget.core.client"
+             xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
+             xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+             xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+             xmlns:toolbar="urn:import:com.sencha.gxt.widget.core.client.toolbar"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:grid="urn:import:com.sencha.gxt.widget.core.client.grid">
+
+    <g:HorizontalPanel width="100%" height="100%" styleName="debugPanel" spacing="2">
+        <c:ContentPanel ui:field="leftRegion" width="400" styleName="leftRegion" headerVisible="false">
+            <c:ContentPanel collapsible="true" width="100%" styleName="debugPanel">
+                <g:Anchor text="List Account"/>
+                <g:Anchor text="Configure Account"/>
+                <g:Anchor text="TEst Account"/>
+                <g:Anchor text="Configure Account"/>
+                <g:Anchor text="Configure Account"/>
+                <g:Anchor text="Configure Account"/>
+                <g:Anchor text="Configure Account"/>
+            </c:ContentPanel>
+        </c:ContentPanel>
+        <c:ContentPanel ui:field="rightRegion" width="900" styleName="rightRegion" headerVisible="false">
+            <g:VerticalPanel width="100%" styleName="debugPanel">
+                <g:Anchor ui:field="listAnchor" text="List Account"/>
+                <g:Anchor ui:field="configureAnchor" text="Configure Account"/>
+            </g:VerticalPanel>
+        </c:ContentPanel>
+    </g:HorizontalPanel>
+</ui:UiBinder>

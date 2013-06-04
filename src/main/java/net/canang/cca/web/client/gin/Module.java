@@ -9,25 +9,30 @@ import com.gwtplatform.mvp.client.gin.DefaultModule;
 import net.canang.cca.web.client.AccountService;
 import net.canang.cca.web.client.AccountServiceAsync;
 import net.canang.cca.web.client.place.MyPlaceManager;
-import net.canang.cca.web.client.presenter.MainPagePresenter;
-import net.canang.cca.web.client.view.MainPageView;
+import net.canang.cca.web.client.presenter.DashboardPagePresenter;
+import net.canang.cca.web.client.presenter.ListPagePresenter;
+import net.canang.cca.web.client.view.DashboardPageView;
+import net.canang.cca.web.client.view.ListPageView;
 
 /**
  * @author rafizan.baharum
  * @since 6/4/13
  */
-public class MyModule extends AbstractPresenterModule {
+public class Module extends AbstractPresenterModule {
 
     @Override
     protected void configure() {
         install(new DefaultModule(MyPlaceManager.class));
 
+        bindPresenter(DashboardPagePresenter.class,
+                DashboardPagePresenter.MyView.class,
+                DashboardPageView.class,
+                DashboardPagePresenter.MyProxy.class);
 
-        // Presenters
-        bindPresenter(MainPagePresenter.class,
-                MainPagePresenter.MyView.class,
-                MainPageView.class,
-                MainPagePresenter.MyProxy.class);
+        bindPresenter(ListPagePresenter.class,
+                ListPagePresenter.MyView.class,
+                ListPageView.class,
+                ListPagePresenter.MyProxy.class);
     }
 
 

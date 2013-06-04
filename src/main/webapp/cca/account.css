@@ -1,0 +1,13 @@
+.debugPanel {
+    border-style: dashed;
+    border-color: red;
+    border-width: 1px;
+}
+
+.rightRegion {
+    background-color: yellow;
+}
+
+.leftRegion {
+    background-color: #9acd32;
+}

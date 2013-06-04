@@ -6,6 +6,7 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.proxy.PlaceManagerImpl;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.TokenFormatter;
+import net.canang.cca.web.client.presenter.ModuleNameTokens;
 
 /**
  * @author rafizan.baharum
@@ -22,9 +23,6 @@ public class MyPlaceManager extends PlaceManagerImpl {
 
     @Override
     public void revealDefaultPlace() {
-        // Using false as a second parameter ensures that the URL in the browser bar
-        // is not updated, so the user is able to leave the application using the
-        // browser's back navigation button.
-        revealPlace(new PlaceRequest("main"), false);
+        revealPlace(new PlaceRequest(ModuleNameTokens.DASHBOARD), false);
     }
 }

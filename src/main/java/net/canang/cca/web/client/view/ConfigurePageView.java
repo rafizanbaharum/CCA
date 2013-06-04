@@ -10,17 +10,21 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import com.gwtplatform.mvp.client.ViewImpl;
+import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import com.sencha.gxt.data.shared.ListStore;
 import com.sencha.gxt.widget.core.client.button.TextButton;
-import com.sencha.gxt.widget.core.client.form.*;
+import com.sencha.gxt.widget.core.client.form.DateField;
+import com.sencha.gxt.widget.core.client.form.NumberField;
+import com.sencha.gxt.widget.core.client.form.NumberPropertyEditor;
+import com.sencha.gxt.widget.core.client.form.TextField;
 import com.sencha.gxt.widget.core.client.grid.ColumnConfig;
 import com.sencha.gxt.widget.core.client.grid.ColumnModel;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.grid.GridView;
 import net.canang.cca.web.client.AccountModel;
 import net.canang.cca.web.client.AccountServiceAsync;
-import net.canang.cca.web.client.presenter.MainPagePresenter;
+import net.canang.cca.web.client.presenter.DashboardPagePresenter;
+import net.canang.cca.web.client.presenter.DashboardUiHandlers;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -29,9 +33,9 @@ import java.util.List;
  * @author rafizan.baharum
  * @since 6/4/13
  */
-public class MainPageView extends ViewImpl implements MainPagePresenter.MyView {
+public class ConfigurePageView extends ViewWithUiHandlers<DashboardUiHandlers> implements DashboardPagePresenter.MyView {
 
-    interface MainPageViewUiBinder extends UiBinder<HorizontalPanel, MainPageView> {
+    interface MainPageViewUiBinder extends UiBinder<HorizontalPanel, ConfigurePageView> {
     }
 
     private static MainPageViewUiBinder ourUiBinder = GWT.create(MainPageViewUiBinder.class);
@@ -74,9 +78,6 @@ public class MainPageView extends ViewImpl implements MainPagePresenter.MyView {
     @UiField
     GridView<AccountModel> view;
 
-    @UiField
-    ComboBox accountCombo;
-
     @UiFactory
     ColumnModel<AccountModel> createColumnModel() {
         AccountModel.AccountProperties props = GWT.create(AccountModel.AccountProperties.class);
@@ -97,7 +98,7 @@ public class MainPageView extends ViewImpl implements MainPagePresenter.MyView {
 
 
     @Inject
-    public MainPageView(Provider<AccountServiceAsync> provider) {
+    public ConfigurePageView(Provider<AccountServiceAsync> provider) {
         rootElement = ourUiBinder.createAndBindUi(this);
         this.service = provider.get();
     }
