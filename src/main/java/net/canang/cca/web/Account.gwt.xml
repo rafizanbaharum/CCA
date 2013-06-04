@@ -5,7 +5,9 @@
 
     <inherits name="com.google.gwt.user.User"/>
     <inherits name='com.sencha.gxt.ui.GXT'/>
+    <inherits name='com.gwtplatform.mvp.Mvp'/>
     <source path="client"/>
+    <set-configuration-property name="gin.ginjector" value="net.canang.cca.web.client.gin.ClientGinjector"/>
 
     <entry-point class="net.canang.cca.web.client.AccountEntryPoint"/>
 </module>

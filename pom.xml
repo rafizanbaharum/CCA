@@ -20,36 +20,8 @@
         <oracle.ucp.version>11.2.0.1.0</oracle.ucp.version>
         <gwt.version>2.5.1</gwt.version>
         <gxt.version>3.0.1</gxt.version>
+        <gwtp.version>1.0-RC-4-SNAPSHOT</gwtp.version>
     </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <!-- Configuration which allows JUnit tests to be placed in the same folder as java files -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <testSourceDirectory>${basedir}/src/main/java/</testSourceDirectory>
-                    <testClassesDirectory>${project.build.directory}/classes/</testClassesDirectory>
-                </configuration>
-            </plugin>
-        </plugins>
-        <!-- Configuration which allows configuration files (such as xml files) to be placed in the same folder as java files -->
-        <resources>
-            <resource>
-                <directory>${basedir}/src/main/java/</directory>
-            </resource>
-        </resources>
-    </build>
-
 
     <dependencies>
         <dependency>
@@ -104,8 +76,8 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${sl4j.version}</version>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
         </dependency>
         <dependency>
             <groupId>javax.transaction</groupId>
@@ -170,6 +142,49 @@
             <version>${gxt.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- GWTP DEPS -->
+        <dependency>
+            <groupId>com.google.gwt.inject</groupId>
+            <artifactId>gin</artifactId>
+            <version>1.5.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gwtplatform</groupId>
+            <artifactId>gwtp-mvp-client</artifactId>
+            <version>${gwtp.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gwtplatform</groupId>
+            <artifactId>gwtp-dispatch-client</artifactId>
+            <version>${gwtp.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gwtplatform</groupId>
+            <artifactId>gwtp-crawler</artifactId>
+            <version>${gwtp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gwtplatform</groupId>
+            <artifactId>gwtp-processors</artifactId>
+            <version>${gwtp.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gwtplatform</groupId>
+            <artifactId>gwtp-tester</artifactId>
+            <version>${gwtp.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -259,7 +274,6 @@
     <repositories>
         <repository>
             <id>Sencha Maven Repository</id>
-            <name>Sencha Maven Repository-releases</name>
             <url>https://maven.sencha.com/repo/gxt-gpl-release</url>
         </repository>
         <repository>
@@ -278,6 +292,11 @@
         <repository>
             <id>springsource-release</id>
             <url>http://repository.springsource.com/maven/bundles/release</url>
+        </repository>
+        <repository>
+            <id>sonatype.snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <layout>default</layout>
         </repository>
     </repositories>
 </project>
