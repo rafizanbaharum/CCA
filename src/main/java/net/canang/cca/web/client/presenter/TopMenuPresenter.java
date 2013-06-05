@@ -14,29 +14,29 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 import net.canang.cca.web.client.AccountServiceAsync;
 
-import static net.canang.cca.web.client.presenter.ModuleNameTokens.CONFIGURE;
+import static net.canang.cca.web.client.presenter.ModuleNameTokens.HOME;
 import static net.canang.cca.web.client.presenter.ModuleNameTokens.LIST;
 
 /**
  * @author rafizan.baharum
  * @since 6/4/13
  */
-public class DashboardPagePresenter extends Presenter<DashboardPagePresenter.MyView, DashboardPagePresenter.MyProxy> implements DashboardUiHandlers {
+public class TopMenuPresenter extends Presenter<TopMenuPresenter.MyView, TopMenuPresenter.MyProxy> implements TopMenuUiHandlers {
 
-    public interface MyView extends View, HasUiHandlers<DashboardUiHandlers> {
+    public interface MyView extends View, HasUiHandlers<TopMenuUiHandlers> {
     }
 
     @ProxyStandard
-    @NameToken(ModuleNameTokens.DASHBOARD)
-    public interface MyProxy extends ProxyPlace<DashboardPagePresenter> {
+    @NameToken(ModuleNameTokens.TOPMENU)
+    public interface MyProxy extends ProxyPlace<TopMenuPresenter> {
     }
 
     private AccountServiceAsync service;
     private PlaceManager placeManager;
 
     @Inject
-    public DashboardPagePresenter(Provider<AccountServiceAsync> provider, EventBus eventBus, MyView view, MyProxy proxy,
-                                  final PlaceManager placeManager) {
+    public TopMenuPresenter(Provider<AccountServiceAsync> provider, EventBus eventBus, MyView view, MyProxy proxy,
+                            final PlaceManager placeManager) {
         super(eventBus, view, proxy);
         this.service = provider.get();
         this.placeManager = placeManager;
@@ -44,13 +44,17 @@ public class DashboardPagePresenter extends Presenter<DashboardPagePresenter.MyV
     }
 
     @Override
-    public void onList() {
-        placeManager.revealPlace(new PlaceRequest.Builder().nameToken(LIST).with("id", "0").build());
+    public void onHome() {
+        placeManager.revealPlace(new PlaceRequest.Builder().nameToken(HOME).build());
     }
 
     @Override
-    public void onConfigure() {
-        placeManager.revealPlace(new PlaceRequest.Builder().nameToken(CONFIGURE).build());
+    public void onAccountList() {
+        placeManager.revealPlace(new PlaceRequest.Builder().nameToken(LIST).build());
+    }
+
+    @Override
+    public void onAccountConfigure() {
     }
 
     @Override

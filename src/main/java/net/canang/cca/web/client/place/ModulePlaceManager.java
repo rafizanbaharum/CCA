@@ -6,23 +6,22 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.proxy.PlaceManagerImpl;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.TokenFormatter;
-import net.canang.cca.web.client.presenter.ModuleNameTokens;
+
+import static net.canang.cca.web.client.presenter.ModuleNameTokens.ROOT;
 
 /**
  * @author rafizan.baharum
  * @since 6/4/13
  */
-public class MyPlaceManager extends PlaceManagerImpl {
+public class ModulePlaceManager extends PlaceManagerImpl {
 
     @Inject
-    public MyPlaceManager(
-            EventBus eventBus,
-            TokenFormatter tokenFormatter) {
+    public ModulePlaceManager( EventBus eventBus, TokenFormatter tokenFormatter) {
         super(eventBus, tokenFormatter);
     }
 
     @Override
     public void revealDefaultPlace() {
-        revealPlace(new PlaceRequest(ModuleNameTokens.DASHBOARD), false);
+        revealPlace(new PlaceRequest.Builder().nameToken(ROOT).build(), false);
     }
 }

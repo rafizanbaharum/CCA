@@ -6,8 +6,7 @@ import com.google.inject.Provider;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import net.canang.cca.web.client.AccountServiceAsync;
-import net.canang.cca.web.client.presenter.DashboardPagePresenter;
-import net.canang.cca.web.client.presenter.ListPagePresenter;
+import net.canang.cca.web.client.presenter.*;
 
 /**
  * @author rafizan.baharum
@@ -18,9 +17,18 @@ public interface ClientGinjector extends Ginjector {
 
     PlaceManager getPlaceManager();
 
-    Provider<DashboardPagePresenter> getDashboardPagePresenter();
+    Provider<RootPresenter> getRootPresenter();
 
-    Provider<ListPagePresenter> getListPagePresenter();
+    Provider<TopMenuPresenter> getTopMenuPresenter();
+
+    Provider<SideMenuPresenter> getSideMenuPresenter();
+
+    Provider<AccountHomePresenter> getAccountHomePresenter();
+
+    Provider<AccountListPresenter> getAccountListPresenter();
+
+//
+//    Provider<AccountConfigurePresenter> getAccountConfigurePresenter();
 
     EventBus getEventBus();
 

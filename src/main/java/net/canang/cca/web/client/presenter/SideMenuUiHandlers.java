@@ -6,9 +6,9 @@ import com.gwtplatform.mvp.client.UiHandlers;
  * @author rafizan.baharum
  * @since 6/4/13
  */
-public interface ListUiHandlers extends UiHandlers {
+public interface SideMenuUiHandlers extends UiHandlers {
 
-    void onView();
+    void onAccountList();
 
-    void onCancel();
+    void onAccountConfigure();
 }

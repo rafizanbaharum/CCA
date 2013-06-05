@@ -1,0 +1,35 @@
+<ui:UiBinder
+        xmlns:ui='urn:ui:com.google.gwt.uibinder'
+        xmlns:g='urn:import:com.google.gwt.user.client.ui'
+        ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+        ui:generateLocales='default'
+        xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client"
+        xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+        xmlns:npui="urn:import:com.example.client.view">
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.MarginData" field="outerData"/>
+
+    <ui:with type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+             field="northData"/>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+             field="westData"/>
+    <ui:with type="com.sencha.gxt.widget.core.client.container.MarginData"
+             field="centerData"/>
+
+    <container:SimpleContainer>
+        <container:child layoutData="{outerData}">
+            <container:BorderLayoutContainer ui:field="con">
+                <container:north layoutData="{northData}">
+                    <gxt:ContentPanel ui:field="topContentPanel" headerVisible="false"/>
+                </container:north>
+                <container:west layoutData="{westData}">
+                    <gxt:ContentPanel ui:field="sideContentPanel" headerVisible="false"/>
+                </container:west>
+                <container:center layoutData="{centerData}">
+                    <gxt:ContentPanel ui:field="mainContentPanel" headerVisible="false" resize="false">
+                    </gxt:ContentPanel>
+                </container:center>
+            </container:BorderLayoutContainer>
+        </container:child>
+    </container:SimpleContainer>
+</ui:UiBinder>
