@@ -31,13 +31,24 @@ public class AccountServiceImpl extends SpringSupportRemoteServlet implements Ac
         log.debug("getting {} accounts", accounts.size());
         List<AccountModel> acc = new ArrayList<AccountModel>();
         for (CaAccount account : accounts) {
-            AccountModel m = new AccountModel();
-            m.setId(account.getId());
-            m.setCode(account.getCode());
-            m.setDescription(account.getDescription());
-            m.setAlias(account.getAlias());
+            AccountModel m = transform(account);
             acc.add(m);
         }
         return new ListLoadResultBean<AccountModel>(acc);
     }
+
+    private AccountModel transform(CaAccount account) {
+        AccountModel m = new AccountModel();
+        m.setId(account.getId());
+        m.setCode(account.getCode());
+        m.setDescription(account.getDescription());
+        m.setAlias(account.getAlias());
+        return m;
+    }
+
+    @Override
+    public AccountModel findAccountById(Long id) {
+        return transform(accountDao.findById(id));
+    }
 }
+

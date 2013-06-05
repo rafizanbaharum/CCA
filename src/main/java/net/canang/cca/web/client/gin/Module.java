@@ -46,6 +46,11 @@ public class Module extends AbstractPresenterModule {
                 AccountListPresenter.MyView.class,
                 AccountListView.class,
                 AccountListPresenter.MyProxy.class);
+
+        bindPresenter(AccountViewPresenter.class,
+                AccountViewPresenter.MyView.class,
+                AccountViewView.class,
+                AccountViewPresenter.MyProxy.class);
 //
 //        bindPresenter(AccountConfigurePresenter.class,
 //                AccountConfigurePresenter.MyView.class,

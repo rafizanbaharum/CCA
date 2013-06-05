@@ -9,32 +9,29 @@ import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
-import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import net.canang.cca.web.client.AccountServiceAsync;
-
-import static net.canang.cca.web.client.presenter.ModuleNameTokens.VIEW;
 
 /**
  * @author rafizan.baharum
  * @since 6/4/13
  */
-public class AccountListPresenter extends Presenter<AccountListPresenter.MyView, AccountListPresenter.MyProxy> implements AccountListUiHandlers {
+public class AccountViewPresenter extends Presenter<AccountViewPresenter.MyView, AccountViewPresenter.MyProxy> implements AccountViewUiHandlers {
 
     private PlaceManager placeManager;
     private AccountServiceAsync service;
 
-    public interface MyView extends View, HasUiHandlers<AccountListUiHandlers> {
+    public interface MyView extends View, HasUiHandlers<AccountViewUiHandlers> {
     }
 
     @ProxyStandard
-    @NameToken(ModuleNameTokens.LIST)
-    public interface MyProxy extends ProxyPlace<AccountListPresenter> {
+    @NameToken(ModuleNameTokens.VIEW)
+    public interface MyProxy extends ProxyPlace<AccountViewPresenter> {
     }
 
     @Inject
-    public AccountListPresenter(Provider<AccountServiceAsync> provider, EventBus eventBus, MyView view, MyProxy proxy, PlaceManager placeManager) {
+    public AccountViewPresenter(Provider<AccountServiceAsync> provider, EventBus eventBus, MyView view, MyProxy proxy, PlaceManager placeManager) {
         super(eventBus, view, proxy);
         this.service = provider.get();
         getView().setUiHandlers(this);
@@ -42,12 +39,21 @@ public class AccountListPresenter extends Presenter<AccountListPresenter.MyView,
     }
 
     @Override
-    public void onView(Long id) {
-        placeManager.revealPlace(new PlaceRequest.Builder().nameToken(VIEW).with("id", id.toString()).build());
+    public void onCreate() {
+        // TODO:
+
+    }
+
+    @Override
+    public void onUpdate() {
+        // TODO:
+
     }
 
     @Override
     public void onCancel() {
+        // TODO:
+
     }
 
     @Override

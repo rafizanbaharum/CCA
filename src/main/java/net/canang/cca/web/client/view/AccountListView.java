@@ -16,6 +16,7 @@ import com.sencha.gxt.data.shared.loader.ListLoadResult;
 import com.sencha.gxt.data.shared.loader.ListLoader;
 import com.sencha.gxt.data.shared.loader.LoadResultListStoreBinding;
 import com.sencha.gxt.widget.core.client.Component;
+import com.sencha.gxt.widget.core.client.event.RowDoubleClickEvent;
 import com.sencha.gxt.widget.core.client.grid.ColumnConfig;
 import com.sencha.gxt.widget.core.client.grid.ColumnModel;
 import com.sencha.gxt.widget.core.client.grid.Grid;
@@ -66,6 +67,13 @@ public class AccountListView extends ViewWithUiHandlers<AccountListUiHandlers> i
         final ListLoader<ListLoadConfig, ListLoadResult<AccountModel>> loader = new ListLoader<ListLoadConfig, ListLoadResult<AccountModel>>(proxy);
         loader.addLoadHandler(new LoadResultListStoreBinding<ListLoadConfig, AccountModel, ListLoadResult<AccountModel>>(store));
         grid.setLoader(loader);
+
+        grid.addRowDoubleClickHandler(new RowDoubleClickEvent.RowDoubleClickHandler() {
+            @Override
+            public void onRowDoubleClick(RowDoubleClickEvent event) {
+                getUiHandlers().onView(store.get(event.getRowIndex()).getId());
+            }
+        });
 
         Timer t = new Timer() {
             @Override

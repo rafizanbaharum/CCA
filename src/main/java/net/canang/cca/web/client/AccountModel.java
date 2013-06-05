@@ -46,10 +46,13 @@ public class AccountModel implements Serializable {
         @Editor.Path("id")
         ModelKeyProvider<AccountModel> id();
 
+        @Editor.Path("code")
         ValueProvider<AccountModel, String> code();
 
+        @Editor.Path("description")
         ValueProvider<AccountModel, String> description();
 
+        @Editor.Path("alias")
         ValueProvider<AccountModel, String> alias();
     }
 

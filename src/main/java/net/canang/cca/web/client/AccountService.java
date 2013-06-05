@@ -10,4 +10,6 @@ import com.sencha.gxt.data.shared.loader.ListLoadResult;
 public interface AccountService  extends RemoteService {
 
     ListLoadResult<AccountModel> findAccounts();
+
+    AccountModel findAccountById(Long id);
 }

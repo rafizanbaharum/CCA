@@ -27,6 +27,8 @@ public interface ClientGinjector extends Ginjector {
 
     Provider<AccountListPresenter> getAccountListPresenter();
 
+    Provider<AccountViewPresenter> getAccountViewPresenter();
+
 //
 //    Provider<AccountConfigurePresenter> getAccountConfigurePresenter();
 

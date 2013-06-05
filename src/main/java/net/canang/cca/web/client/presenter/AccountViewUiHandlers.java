@@ -6,9 +6,11 @@ import com.gwtplatform.mvp.client.UiHandlers;
  * @author rafizan.baharum
  * @since 6/4/13
  */
-public interface AccountListUiHandlers extends UiHandlers {
+public interface AccountViewUiHandlers extends UiHandlers {
 
-    void onView(Long id);
+    void onCreate();
+
+    void onUpdate();
 
     void onCancel();
 }

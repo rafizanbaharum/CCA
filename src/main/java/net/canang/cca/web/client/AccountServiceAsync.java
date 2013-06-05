@@ -10,4 +10,6 @@ import com.sencha.gxt.data.shared.loader.ListLoadResult;
 public interface AccountServiceAsync {
 
     void findAccounts(AsyncCallback<ListLoadResult<AccountModel>> async);
+
+    void findAccountById(Long id, AsyncCallback<AccountModel> async);
 }
